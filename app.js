@@ -1,20 +1,18 @@
 /*global words*/
 /* exported guess*/
 var guesses = 0;
+var pullWord = words.slice();
 
 function loadWord() {
-    var pullWord = words.slice();
-
-    guesses += 1;
-
-    function getRandomWord (){
-        var index = getRandomIndex(pullWord.length);
-        var words = pullWord[index];
-        pullWord.splice(index, 1);
-
-        return words;
-    }
+    var index = getRandomIndex(pullWord.length);
+    var word = pullWord[index];
+    pullWord.splice(index, 1);
+    console.log('word', word);
+        
+    return word;
 }
+
+loadWord();
 
 function guess() {
     
