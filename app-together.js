@@ -1,4 +1,5 @@
 var letterList = [];
+var guessCount = 0;
 
 function loadWord(words) {
     console.log('what words?', words);
@@ -10,7 +11,7 @@ function loadWord(words) {
     wordResult.innerText = word;
 
     function getRanInteger(min, max) {
-        
+
         return Math.floor(Math.random() * (max - min)) + min;
 
     }
@@ -28,7 +29,7 @@ function guess(words){
     var elements = form.elements;
     var guess = elements.guessletter.value;
     console.log('guess:', guess);
-    
+
     // make sure guess is a letter
     checkLetter(guess);
 
@@ -39,8 +40,24 @@ function guess(words){
     // if not a repeat, add to letterList
     if(repeat === false){
         letterList.push(guess);
-        console.log('letterList:', letterList)
+        console.log('letterList:', letterList);
     }
+
+    // incrementing guess count
+    guessCount = guessCount + 1;
+    console.log('guessCount is:', guessCount);
+
+    // clearing guess box after each guess
+    document.getElementById('guessletter').value = '';
+
+    //split word into letters
+    var wordLetters = word.split('');
+    console.log('split word into letters:', wordLetters);
+
+    // if word includes letter, reveal letter in word
+    if(wordLetters.includes(guess)) {
+
+    };
 
     return false; // doesnt clear
 }
@@ -50,7 +67,7 @@ function checkLetter(character)
     var regex = /^[a-zA-Z]+$/;
     if(!character.match(regex))
     {
-        console.log("Must input letters"); 
+        console.log('Must input letters'); 
         // alert("Must input letters");
 
     }
@@ -58,7 +75,7 @@ function checkLetter(character)
 
 function checkRepeat(guess){
     if(letterList.includes(guess)){
-        console.log("You already guessed this letter!"); 
+        console.log('You already guessed this letter!'); 
         // alert("You already guessed this letter!");
         return true;
     }
