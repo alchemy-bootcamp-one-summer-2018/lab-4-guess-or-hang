@@ -1,0 +1,10 @@
+body {
+    font-family: arial;
+    background-color: rgb(185,179,175);}
+
+#word-results {
+    color: rgb(100,100,0);
+    visibility: hidden;
+}
+
+

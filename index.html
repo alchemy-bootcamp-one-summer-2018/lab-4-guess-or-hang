@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lab 4</title>
+    <link rel = 'stylesheet' href = 'css/main.css'>
+</head>
+
+<body>
+    <article>
+        <header>
+            <h1>Let's play hangman!</h1>
+        </header>    
+    </article>
+
+    <script type="text/javascript" src="js/words.js"></script> 
+    
+    <section id = 'getword'>
+        <script type="text/javascript" src="js/app.js"></script>
+        <!--get random word-->
+        <form id = "hangman">
+        Guess letter:
+        <input type="text" id = 'guessletter'>
+        <button id = "submit" type="submit" 
+        onClick="guess(event, words);"> Guess letter </button>
+        <p id="word-results"></p>
+
+
+        </form> 
+        
+    </section>
+
+    
+</body>
+
+</html>
+
