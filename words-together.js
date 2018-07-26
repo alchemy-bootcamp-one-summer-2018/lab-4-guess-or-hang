@@ -1,0 +1,1 @@
+var words = ['dog', 'cat', 'moose'];
