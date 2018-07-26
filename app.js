@@ -2,18 +2,27 @@
 /* exported guess*/
 var guesses = 0;
 var getArray = words.slice();
-var word = '';
+var selectedWord = '';
+var wordToGuess = [];
 
 function loadWord() {
     var index = getRandomIndex(getArray.length);
-    word = getArray[index];
+    selectedWord = getArray[index];
     getArray.splice(index, 1);
-    console.log('word', word);
+    console.log('word', selectedWord);
         
-    return word;
+    return selectedWord;
 }
-
+function showBlanks() {
+    for(var i = 0; i < selectedWord.length; i++) {
+        console.log('selected word letters:', selectedWord.length);
+        //var lettersToDisplay = wordToGuess[i];
+        //var display = selectedWord;
+        document.getElementById('letter-' + i).innerText = '_';
+    }
+}
 loadWord();
+showBlanks();
 function guess() {
     
 }
