@@ -1,11 +1,12 @@
 var letterList = [];
 var guessCount = 0;
+var word = '';
 
 function loadWord(words) {
     console.log('what words?', words);
     var randNum = getRanInteger(0, words.length);
 
-    var word = words[randNum];
+    word = words[randNum];
 
     var wordResult = document.getElementById('word-results');
     wordResult.innerText = word;
@@ -15,14 +16,11 @@ function loadWord(words) {
         return Math.floor(Math.random() * (max - min)) + min;
 
     }
-
+    console.log('random word:', word);
     return word;
 }
 
-function guess(words){
-    //picked a word
-    var word = loadWord(words); 
-    console.log('random word:', word);
+function guess(){
 
     // takes in guess letter and stores it
     var form = document.getElementById('hangman'); 
@@ -54,10 +52,17 @@ function guess(words){
     var wordLetters = word.split('');
     console.log('split word into letters:', wordLetters);
 
-    // if word includes letter, reveal letter in word
-    if(wordLetters.includes(guess)) {
+    // made a string with the same number of spaces as the word length
+    var empty = '';
+    for(var i = 0; i < word.length; i++){
+        empty += 'X';
+    }
+    console.log('empty word: ', empty);
 
-    };
+    // if word includes letter, reveal letter in word
+    // if(wordLetters.includes(guess)) {
+
+    // };
 
     return false; // doesnt clear
 }

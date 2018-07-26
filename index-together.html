@@ -17,11 +17,16 @@
 <script type="text/javascript" src="app-together.js"></script>
 
 <section id='getword'>
-    <!--get random word-->
+
     <form id="hangman">
+        <!--get random word-->
+        <button id="submit" type="submit" onClick="return loadWord(words);"> Play the game </button>
+        <p id="word-results"></p>
+
+        <!--play game-->
         <input type="text" id='guessletter'>
         <button id="submit" type="submit" onClick="return guess(words);"> Guess letter </button>
-        <p id="word-results"></p>
+        <p id="guess-results"></p>
     </form>
     
     </section>
