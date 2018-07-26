@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <h2>Gallows</h2>
+    </section>
+
+    <section>
+        <h2>Word to Guess</h2>
+        <p></p>
+    </section>
+    <section>
+        <h2>Guess Letter</h2>
+        <form>
+            <input type="text" maxlength="1" required>
+            <button onclick="guess()">Guess</button>
+        </form>
+    </section>
+    <section>
+        <h2>Letters Guessed</h2>
+    </section>
+    <section>
+        <h2>Numbers of Guesses</h2>
+        <p> You've guessed <span id="guesses">0</span> times</p>
+    </section>
+    
+    <script src="words.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
