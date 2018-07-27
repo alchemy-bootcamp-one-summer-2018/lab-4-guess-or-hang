@@ -11,7 +11,7 @@
 <body>
     <div>
         <header>
-            <h1>Let's play hangman!</h1>
+            <h1>Let's play Drakeman!</h1>
         </header>
 
         <script type="text/javascript" src="words-together.js"></script> 
@@ -19,29 +19,34 @@
 
         <section id='game'>
 
-        <!--get random word-->
-        <form id="getword">
-            <button id="word-submit" type="submit" onClick="return loadWord(words);"> Generate word </button>
-            <p id="word-results"></p>
-        </form>
+            <!--get random word-->
+            <form id="getword">
+                <button id="word-submit" type="submit" onClick="return loadWord(words);"> Generate word </button>
+                <p id="word-results"></p>
+            </form>
 
-        <!--reset game-->
-        <button id="game-reset" type="reset" onClick="resetGame();"> Reset </button> 
-        <br>
-        <br>
-        <form id="playgame">
-            <!--play game-->
-            <input type="text" maxlength="1" id='guessletter'>
-            <button id="guess-submit" type="submit" onClick="return guess(words);"> Guess letter </button>
             <p id="guess-results"></p>
-        </form>
 
-        <label> Letters Guessed: <p id="letters-guessed"></p></label>
-        <p id="warning"></p>
-        <label> Guesses Left: <p id="guesses-left"></p></label>
-        <p id="body-parts"></p>
+            <form id="playgame">
+                <!--play game-->
+                <input type="text" maxlength="1" id='guessletter'>
+                <button id="guess-submit" type="submit" onClick="return guess(words);"> Guess letter </button>
+            </form><br>
 
-
+            <label> Letters Guessed: <p id="letters-guessed"></p></label>
+            <p id="warning"></p>
+            <label> Guesses Left: <p id="guesses-left"></p></label>
+            <p id="body-parts">
+                <img src="images/room.png" alt="empty yellow room">
+                <img src="images/body.png" class = "hidden" id = "body" alt="drake's body">
+                <img src="images/head.png" class = "hidden" id = "head" alt="drake's head">
+                <img src="images/leftarm.png" class = "hidden" id = "left_arm" alt="drake's left arm">
+                <img src="images/leftleg.png" class = "hidden" id = "left_leg" alt="drake's left leg">
+                <img src="images/rightarm.png" class = "hidden" id = "right_arm" alt="drake's right arm">
+                <img src="images/rightleg.png" class = "hidden" id = "right_leg" alt="drake's right leg">                
+            </p>
+            <!--reset game-->
+            <button id="game-reset" type="reset" onClick="resetGame();"> Play Again! </button> 
         </section>
     </div>
 </body>
