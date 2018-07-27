@@ -24,15 +24,18 @@
          </section>
 
 <!-- This is the form where the guess the letter--> 
-<!--
-        <form id="guess-something" onsubmit= "return getRandomWord()">
+
+        <form id="guess-form" onsubmit= "return guess()">
  
-        <input name="" require>
+        <input name="guessLetter">
 
-        <button type="submit">Start!</button>
+        <button type="submit">Guess</button>
 
-       </form> -->
-       <button onclick = "getRandomWord()">Start!</button>
+       </form> 
+
+       <p id="guess-result"></p>
+
+       <button onclick ="getRandomWord()">Start!</button>
 
  <!-- Letters Guessed--> 
 
@@ -45,7 +48,7 @@
  <!-- A win of lose message--> 
 
     <section> 
-        <p id="guess-result"></p>
+        <p id="guessResult"></p>
 
      </section>
 
