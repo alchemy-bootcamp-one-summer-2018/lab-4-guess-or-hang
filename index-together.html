@@ -36,15 +36,15 @@
             <label> Letters Guessed: <p id="letters-guessed"></p></label>
             <p id="warning"></p>
             <label> Guesses Left: <p id="guesses-left"></p></label>
-            <p id="body-parts">
-                <img src="images/room.png" alt="empty yellow room">
+            <div>
+                <img src="images/room.png" id = "room" alt="empty yellow room">
                 <img src="images/body.png" class = "hidden" id = "body" alt="drake's body">
                 <img src="images/head.png" class = "hidden" id = "head" alt="drake's head">
                 <img src="images/leftarm.png" class = "hidden" id = "left_arm" alt="drake's left arm">
                 <img src="images/leftleg.png" class = "hidden" id = "left_leg" alt="drake's left leg">
                 <img src="images/rightarm.png" class = "hidden" id = "right_arm" alt="drake's right arm">
                 <img src="images/rightleg.png" class = "hidden" id = "right_leg" alt="drake's right leg">                
-            </p>
+            </div>
             <!--reset game-->
             <button id="game-reset" type="reset" onClick="resetGame();"> Play Again! </button> 
         </section>

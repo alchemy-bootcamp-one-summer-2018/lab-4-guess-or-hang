@@ -4,7 +4,7 @@ var word = ''; // this will be the answer word
 var userWord = []; // this will be the partial answer word
 var letterList = []; // this will be the list of letters guessed
 var wrongGuess = 0; // number of wrong guess
-var bodyParts = ['head', 'body', 'left arm', 'right arm', 'left leg', 'right leg'];
+var bodyParts = ['head', 'body', 'left_arm', 'right_arm', 'left_leg', 'right_leg'];
 var gallows = [];
 
 function loadWord(words) {
@@ -63,6 +63,8 @@ function guess(){
         }
         // if they are repeating themselves, deduct a guess
         if(repeat === true){
+            gallows.push(bodyParts[wrongGuess]);
+            addPic(bodyParts[wrongGuess]);
             wrongGuess = wrongGuess + 1;
             guessesLeft.innerText = bodyParts.length - wrongGuess;
         }
@@ -88,11 +90,11 @@ function guess(){
     else {
         // add body parts
         gallows.push(bodyParts[wrongGuess]);
-        var bodyPartsDisplay = document.getElementById('body-parts');
-        bodyPartsDisplay.innerText = gallows.join(' ');
+        addPic(bodyParts[wrongGuess]);
         console.log('gallows:', gallows);
         // increment guess count
         wrongGuess = wrongGuess + 1;
+
 
         guessesLeft.innerText = bodyParts.length - wrongGuess;
 
@@ -146,6 +148,11 @@ function checkRepeat(guess){
     }
 }
 
+function addPic (id){
+    document.getElementById(id).classList.remove('hidden');
+    console.log('hey', id, document.getElementById(id));
+}
+
 function resetGame() {
     word = '';
     userWord = [];
@@ -158,12 +165,14 @@ function resetGame() {
     warning.innerText = '';
     var lettersGuessed = document.getElementById('letters-guessed');
     lettersGuessed.innerText = '';
-    var bodyPartsDisplay = document.getElementById('body-parts');
-    bodyPartsDisplay.innerText = '';
     var guessesLeft = document.getElementById('guesses-left');
     guessesLeft.innerText = '';
     var guessResults = document.getElementById('guess-results');
     guessResults.innerText = '';
     var wordResults = document.getElementById('word-results');
     wordResults.innerText = '';
+
+    for(var i = 0; i < bodyParts.length; i++){
+        document.getElementById(bodyParts[i]).classList.add('hidden');
+    }
 }
