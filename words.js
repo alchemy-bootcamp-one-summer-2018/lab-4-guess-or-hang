@@ -7,4 +7,4 @@ var words = [
     'fatal', //3
     'horrible', //4
 ];
-console.log('words.js is called');
+console.log('words.js is working');

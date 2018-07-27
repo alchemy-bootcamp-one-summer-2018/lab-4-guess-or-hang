@@ -3,9 +3,10 @@
 var guesses = 0;
 var getArray = words.slice();
 var selectedWord = '';
-var wordToGuess = [];
+//var wordToGuess = [];
 var lettersGuessed = [];
 //var span = document.getElementById('guessed-letter-one');
+console.log('app.js is working');
 
 function loadWord() {
     var index = getRandomIndex(getArray.length);
@@ -29,7 +30,12 @@ showBlanks();
 function guess() {
     var guessedLetter = document.querySelector('input').value;
     console.log('letter pressed:', guessedLetter);
-    lettersGuessed.push(guessedLetter);
+    if(lettersGuessed.includes(guessedLetter)) {
+        alert('ERROR: Travis noticed you have already used ' + guessedLetter);
+    }
+    else {
+        lettersGuessed.push(guessedLetter);
+    }
     console.log('letter guessed:', lettersGuessed);
     //for or while loop to get it to show all of the letters guessed?
     document.getElementById('guessed-letter').innerText = lettersGuessed;
@@ -41,4 +47,3 @@ function getRandomIndex(max) {
 }
 
 console.log('random index', getRandomIndex(5));
-console.log('app.js is called');
