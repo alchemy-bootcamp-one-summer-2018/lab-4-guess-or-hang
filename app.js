@@ -43,8 +43,12 @@ function guess() {
     document.getElementById('guessed-letter').innerText = lettersGuessed;
 
     for(var i = 0; i < selectedWord.length; i++) {
-        var eachLetter = selectedWord.split('');
-        console.log('each letter', eachLetter[i]);
+        //var eachLetter = selectedWord.split('');
+        console.log('test-letter', selectedWord[0]);
+
+        if(selectedWord[i] === guessedLetter) {
+            document.getElementById('letter-' + i).innerText = guessedLetter;
+        }
         
     }
     return false;
