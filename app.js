@@ -10,6 +10,8 @@
 var index = null;
 var selectedWord = '';
 
+var copy = words.slice();
+
 
 
 //Choosing a random word. line 13 is creating a variable that is taking the function getRandomIndex and are 
@@ -20,22 +22,10 @@ function getRandomWord() {
 
     selectedWord = words[index];
     console.log(selectedWord);
-    
-    for(var i = 0; i < 5; i++) {
-        var wordToGuess = getRandomWord[i];
-        var display = '';
-    
-        if(wordToGuess) {
-            display = wordToGuess(' - ');
-        } 
-        document.getElementById('word-' + i).innerText = display;}
 
-    var word = getRandomWord();
-    for(i = 0; i < word.length; i++){
-        console.log(word[i]);
-    }
-    var letter = words.split('');
-    console.log('letters:\n', letter);
+    var SplitRandomWord = selectedWord.split('');
+    console.log('letters:\n', SplitRandomWord);
+    
     return false;
         
 }
@@ -58,9 +48,41 @@ function guess(){
     var letterTheyGuessed = guessForm.elements.guessLetter.value;
     console.log (letterTheyGuessed);
 
+    var letterSpots = [];
+    while(copy.length > 0) {
+
+    var spotOne =  SplitRandomWord;
+    var spotTwo =  SplitRandomWord;
+    var spotThree =  SplitRandomWord;
+    var spotFour =  SplitRandomWord;
+
+    var letterSpot = [spotOne,spotTwo,spotThree,spotFour ]
+
+    letterSpots.push(letterSpot);
+
+    }
+
+    for(var i = 0; i < word.length; i++) {
+
     if(letterTheyGuessed === 'cat') {
         guessResult.innerText = 'That\'s right! An ' + letterTheyGuessed;
         console.log ('this is what user guessed', letterTheyGuessed);
+
+    
+  
+    //     var wordToGuess = getRandomWord[i];
+    //     var display = '';
+    
+    //     if(wordToGuess) {
+    //         display = wordToGuess(' - ');
+    //     } 
+    // }
+    // document.getElementById('word-' + i).innerText = display;
+       
+    // var word = getRandomWord();
+    // for(i = 0; i < word.length; i++){
+    //     console.log(word[i]);
+    // 
     }
     
     
@@ -89,4 +111,4 @@ function guess(){
 
 
 //Loop: an empty array called answerArray and fill it with
-//underscores (_) to match the number of letters in the word.
+//underscores (_) to match the number of letters in the word
