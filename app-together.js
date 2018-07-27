@@ -3,7 +3,7 @@
 var word = ''; // this will be the answer word
 var userWord = []; // this will be the partial answer word
 var letterList = []; // this will be the list of letters guessed
-var guessCount = 0;
+var wrongGuess = 0; // number of wrong guess
 var bodyParts = ['head', 'body', 'left arm', 'right arm', 'left leg', 'right leg'];
 var gallows = [];
 
@@ -19,6 +19,11 @@ function loadWord(words) {
     //make blank string with same length as word
     wordBuild();
     console.log('userWord:', userWord);
+
+    //dispay blanks
+    var guessResult = document.getElementById('guess-results');
+    guessResult.innerText = userWord.join('');
+
     return false;
 }
 
@@ -53,25 +58,35 @@ function guess(){
                 userWord[i] = guess;
             }
         }
+
+        var guessResult = document.getElementById('guess-results');
+        guessResult.innerText = userWord.join('');
         console.log('userWord:', userWord);
+
+
         // check to see if we have won
         if(userWord.join('') === word) {
             console.log('You won!');
-            alert('You won!');
+
+            setTimeout(function() {
+                alert('You won!');}, 100);
             submit.disabled = true;
         }
     }
     else {
         // add body parts
-        gallows.push(bodyParts[guessCount]);
+        gallows.push(bodyParts[wrongGuess]);
+        var bodyPartsDisplay = document.getElementById('body-parts');
+        bodyPartsDisplay.innerText = gallows.join(' ');
         console.log('gallows:', gallows);
         // increment guess count
-        guessCount = guessCount + 1;
-        console.log('guessCount is:', guessCount);
+        wrongGuess = wrongGuess + 1;
+        console.log('wrongGuess is:', wrongGuess);
         // check to see if lost game
-        if(guessCount === bodyParts.length){
+        if(wrongGuess === bodyParts.length){
             console.log('you lose!');
-            alert('You lose!');
+            setTimeout(function() {
+                alert('You loose!');}, 100);
             submit.disabled = true;
         }
     }
@@ -86,7 +101,7 @@ function getRandInteger(min, max) {
 function wordBuild(){
     // make a string with the same number of spaces as the word we need to guess
     for(var i = 0; i < word.length; i++){
-        userWord.push('?');
+        userWord.push('_ ');
     }
 }
 
@@ -115,7 +130,7 @@ function resetGame() {
     word = '';
     userWord = [];
     letterList = [];
-    guessCount = 0;
+    wrongGuess = 0;
     gallows = [];
     var submit = document.getElementById('guess-submit');
     submit.disabled = false;
