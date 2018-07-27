@@ -13,9 +13,7 @@ function loadWord(words) {
     var randNum = getRandInteger(0, words.length);
     word = words[randNum];
     console.log('random word:', word);
-    //insert random word but keep it hidden
-    var wordResult = document.getElementById('word-results');
-    wordResult.innerText = word;
+
     //make blank string with same length as word
     wordBuild();
     console.log('userWord:', userWord);
@@ -34,18 +32,23 @@ function guess(){
     var elements = form.elements;
     var guess = elements.guessletter.value;
     console.log('guess:', guess);
+    var warning = document.getElementById('warning');
+    warning.innerText = '';
 
     // make sure guess is a letter
     checkLetter(guess);
 
     // check guess is a repeat (true or false)
-    var repeat = checkRepeat(guess);
+    checkRepeat(guess);
 
-    // if not a repeat, add to letterList
-    if(repeat === false){
-        letterList.push(guess);
-        console.log('letterList:', letterList);
-    }
+    // add to letterList
+    letterList.push(guess);
+    console.log('letterList:', letterList);
+
+    // display letter list
+    var lettersGuessed = document.getElementById('letters-guessed');
+    lettersGuessed.innerText = letterList.join(' ');
+
     // clear guess box after each guess
     document.getElementById('guessletter').value = '';
 
@@ -66,8 +69,9 @@ function guess(){
 
         // check to see if we have won
         if(userWord.join('') === word) {
+            var wordResults = document.getElementById('word-results');
+            wordResults.innerText = word;
             console.log('You won!');
-
             setTimeout(function() {
                 alert('You won!');}, 100);
             submit.disabled = true;
@@ -81,12 +85,17 @@ function guess(){
         console.log('gallows:', gallows);
         // increment guess count
         wrongGuess = wrongGuess + 1;
+        var guessesLeft = document.getElementById('guesses-left');
+        guessesLeft.innerText = bodyParts.length - wrongGuess;
+
         console.log('wrongGuess is:', wrongGuess);
         // check to see if lost game
         if(wrongGuess === bodyParts.length){
+            var wordResults = document.getElementById('word-results');
+            wordResults.innerText = word;
             console.log('you lose!');
             setTimeout(function() {
-                alert('You loose!');}, 100);
+                alert('You lose!');}, 100);
             submit.disabled = true;
         }
     }
@@ -110,6 +119,8 @@ function checkLetter(character)
     var regex = /^[a-zA-Z]+$/;
     if(!character.match(regex))
     {
+        var warning = document.getElementById('warning');
+        warning.innerText = 'Input must be a letter! You just wasted a guess.';
         console.log('Must input letters');
         // alert("Must input letters");
     }
@@ -117,8 +128,9 @@ function checkLetter(character)
 
 function checkRepeat(guess){
     if(letterList.includes(guess)){
+        var warning = document.getElementById('warning');
+        warning.innerText = 'You already guessed this letter! You just wasted a guess.';
         console.log('You already guessed this letter!');
-        // alert("You already guessed this letter!");
         return true;
     }
     else {
@@ -134,4 +146,16 @@ function resetGame() {
     gallows = [];
     var submit = document.getElementById('guess-submit');
     submit.disabled = false;
+    var warning = document.getElementById('warning');
+    warning.innerText = '';
+    var lettersGuessed = document.getElementById('letters-guessed');
+    lettersGuessed.innerText = '';
+    var bodyPartsDisplay = document.getElementById('body-parts');
+    bodyPartsDisplay.innerText = '';
+    var guessesLeft = document.getElementById('guesses-left');
+    guessesLeft.innerText = '';
+    var guessResults = document.getElementById('guess-results');
+    guessResults.innerText = '';
+    var wordResults = document.getElementById('word-results');
+    wordResults.innerText = '';
 }

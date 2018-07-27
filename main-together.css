@@ -1,6 +1,7 @@
 #word-results {
-    visibility: hidden;
+    color: green
 }
 
-#guess-results {
+#warning {
+    color: red;
 }

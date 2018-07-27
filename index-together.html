@@ -23,16 +23,18 @@
         <button id="word-submit" type="submit" onClick="return loadWord(words);"> New word </button>
         <p id="body-parts"></p>
         <p id="word-results"></p>
-        <p id="guess-results"></p>
     </form>
     
     <form id="playgame">
         <!--play game-->
-        <input type="text" id='guessletter'>
+        <input type="text" maxlength="1" id='guessletter'>
         <button id="guess-submit" type="submit" onClick="return guess(words);"> Guess letter </button>
         <p id="guess-results"></p>
     </form>
 
+    <label> Letters Guessed: <p id="letters-guessed"></p></label>
+    <p id="warning"></p>
+    <label> Guesses Left: <p id="guesses-left"></p></label>
     <!--reset game-->
     <button id="game-reset" type="reset" onClick="resetGame();"> Reset </button>
 
