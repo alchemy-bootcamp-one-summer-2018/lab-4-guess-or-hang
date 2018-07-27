@@ -71,10 +71,11 @@ function guess(){
             userWord[i] = guess;
         }
     }
-    console.log('userWordprogress', userWord);
+    console.log('userWordprogress', userWord, guess);
+    console.log('make list a word', userWord.join(''));
 
     // check to see if we have won
-    if(userWord.join('') === guess) {
+    if(userWord.join('') === word) {
         console.log('you won!');
         alert('You got it!');
     }
