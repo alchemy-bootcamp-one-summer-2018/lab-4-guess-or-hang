@@ -41,6 +41,12 @@ function guess() {
     console.log('letter guessed:', lettersGuessed);
     //for or while loop to get it to show all of the letters guessed?
     document.getElementById('guessed-letter').innerText = lettersGuessed;
+
+    for(var i = 0; i < selectedWord.length; i++) {
+        var eachLetter = selectedWord.split('');
+        console.log('each letter', eachLetter[i]);
+        
+    }
     return false;
 }
 
