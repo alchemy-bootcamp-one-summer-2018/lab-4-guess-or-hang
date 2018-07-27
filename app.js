@@ -18,11 +18,11 @@ function getRandomWord() {
     var selectedWord = words[index];
     console.log(selectedWord);
     
-    for(var i = 0; i < 4; i++) {
-        var showRandomWord = getRandomWord[i];
+    for(var i = 0; i < 5; i++) {
+        var wordToGuess = getRandomWord[i];
         var display = '';
     
-        if(showRandomWord) {
+        if(wordToGuess) {
             display = showRandomWord(' - ');
         } 
 
@@ -49,3 +49,4 @@ function getRandomIndex(max) {
 
 //Loop: an empty array called answerArray and fill it with
 //underscores (_) to match the number of letters in the word.
+for (var j)
