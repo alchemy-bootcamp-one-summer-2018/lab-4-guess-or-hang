@@ -5,6 +5,7 @@ var numberOfGuesses = 0;
 var getArray = words.slice();
 var selectedWord = '';
 var lettersGuessed = [];
+var correctGuesses = [];
 console.log('app.js is working');
 
 function loadWord() {
@@ -35,6 +36,7 @@ function guess() {
         lettersGuessed.push(guessedLetter);
         numberOfGuesses ++; 
         document.getElementById('number-of-guesses').innerText = numberOfGuesses;
+        document.getElementById('body-').hidden = false;
     }
     
     console.log('letter guessed:', lettersGuessed);
@@ -46,8 +48,7 @@ function guess() {
 
         if(selectedWord[i] === guessedLetter) {
             document.getElementById('letter-' + i).innerText = guessedLetter;
-        }
-        
+        }        
     }
     return false;
 }
