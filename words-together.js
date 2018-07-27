@@ -1,1 +1,1 @@
-var words = ['dog', 'cat', 'moose'];
+var words = ['moose'];

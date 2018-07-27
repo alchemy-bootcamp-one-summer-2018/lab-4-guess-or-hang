@@ -1,7 +1,7 @@
 var letterList = [];
 var guessCount = 0;
 var word = '';
-var empty = '';
+var userWord = [];
 
 function loadWord() {
     console.log('what words?', words);
@@ -17,18 +17,19 @@ function loadWord() {
         return Math.floor(Math.random() * (max - min)) + min;
     }
     console.log('random word:', word);
-
-    // made a string with the same number of spaces as the word length
-    for(var i = 0; i < word.length; i++){
-        empty += 'X';
-    }
-
-    console.log('empty word: ', empty);
-    console.log('word at end of function:', word);
-
+    userWord = wordBuild();
+    console.log('userWord:', userWord);
     return false;
-    //return [word, empty];
 }
+
+function wordBuild(){
+    // make a string with the same number of spaces as the word we need to guess
+    for(var i = 0; i < word.length; i++){
+        userWord.push('X');
+    }
+    return userWord;
+}
+
 
 function guess(){
 
@@ -64,10 +65,13 @@ function guess(){
     var wordLetters = word.split('');
     console.log('split word into letters:', wordLetters);
 
-    // if word includes letter, reveal letter in word
-    // if(wordLetters.includes(guess)) {
-
-    // };
+    //if word includes letter, reveal letter in word
+    for(var i = 0; i < word.length; i++){
+        if(guess === wordLetters[i]){
+            userWord[i] = guess;
+        }
+    }
+    console.log('userWordprogress', userWord);
 
     return false; // doesnt clear
 }
