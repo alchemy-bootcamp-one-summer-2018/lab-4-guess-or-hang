@@ -1,3 +1,3 @@
 /* exported words */
 
-var words = ['cat', 'dog', 'ha', 'bird', 'love'];
+var words = ['cat', 'dog', 'hat', 'bird', 'love'];
