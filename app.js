@@ -1,6 +1,6 @@
 /*global words*/
 /* exported guess*/
-var guesses = 0;
+var numberOfGuesses = 0;
 var getArray = words.slice();
 var selectedWord = '';
 //var wordToGuess = [];
@@ -35,6 +35,8 @@ function guess() {
     }
     else {
         lettersGuessed.push(guessedLetter);
+        numberOfGuesses ++; 
+        document.getElementById('number-of-guesses').innerText = numberOfGuesses;
     }
     console.log('letter guessed:', lettersGuessed);
     //for or while loop to get it to show all of the letters guessed?
