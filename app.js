@@ -1,5 +1,6 @@
-/* exported getRandomWord */
+/* exported getRandomWord, guess */
 /* global words */
+
 
 
 // these are our global words that we can use anywhere we need them. You want
@@ -14,10 +15,10 @@ var selectedWord = '';
 //Choosing a random word. line 13 is creating a variable that is taking the function getRandomIndex and are 
 // array of words line 17 we created a  
 function getRandomWord() {
-    var index = getRandomIndex(words.length);
+    index = getRandomIndex(words.length);
     console.log(index);
 
-    var selectedWord = words[index];
+    selectedWord = words[index];
     console.log(selectedWord);
     
     for(var i = 0; i < 5; i++) {
@@ -25,16 +26,19 @@ function getRandomWord() {
         var display = '';
     
         if(wordToGuess) {
-            display = showRandomWord(' - ');
+            display = wordToGuess(' - ');
         } 
-
         document.getElementById('word-' + i).innerText = display;}
 
-    
+    var word = getRandomWord();
+    for(i = 0; i < word.length; i++){
+        console.log(word[i]);
+    }
+    var letter = words.split('');
+    console.log('letters:\n', letter);
     return false;
-
+        
 }
-
 // This  picks a random word from the array. Math.floor(Math.random) created 
 //random picking 
 
@@ -58,10 +62,12 @@ function guess(){
         guessResult.innerText = 'That\'s right! An ' + letterTheyGuessed;
         console.log ('this is what user guessed', letterTheyGuessed);
     }
-
+    
+    
     return false;
 
 }
+
 
 
 
