@@ -9,36 +9,41 @@
 </head>
 
 <body>
-    <header>
-        <h1>Let's play hangman!</h1>
-    </header>
+    <div>
+        <header>
+            <h1>Let's play hangman!</h1>
+        </header>
 
-    <script type="text/javascript" src="words-together.js"></script> 
-    <script type="text/javascript" src="app-together.js"></script>
+        <script type="text/javascript" src="words-together.js"></script> 
+        <script type="text/javascript" src="app-together.js"></script>
 
-    <section id='game'>
+        <section id='game'>
 
-    <!--get random word-->
-    <form id="getword">
-        <button id="word-submit" type="submit" onClick="return loadWord(words);"> New word </button>
+        <!--get random word-->
+        <form id="getword">
+            <button id="word-submit" type="submit" onClick="return loadWord(words);"> Generate word </button>
+            <p id="word-results"></p>
+        </form>
+
+        <!--reset game-->
+        <button id="game-reset" type="reset" onClick="resetGame();"> Reset </button> 
+        <br>
+        <br>
+        <form id="playgame">
+            <!--play game-->
+            <input type="text" maxlength="1" id='guessletter'>
+            <button id="guess-submit" type="submit" onClick="return guess(words);"> Guess letter </button>
+            <p id="guess-results"></p>
+        </form>
+
+        <label> Letters Guessed: <p id="letters-guessed"></p></label>
+        <p id="warning"></p>
+        <label> Guesses Left: <p id="guesses-left"></p></label>
         <p id="body-parts"></p>
-        <p id="word-results"></p>
-    </form>
-    
-    <form id="playgame">
-        <!--play game-->
-        <input type="text" maxlength="1" id='guessletter'>
-        <button id="guess-submit" type="submit" onClick="return guess(words);"> Guess letter </button>
-        <p id="guess-results"></p>
-    </form>
 
-    <label> Letters Guessed: <p id="letters-guessed"></p></label>
-    <p id="warning"></p>
-    <label> Guesses Left: <p id="guesses-left"></p></label>
-    <!--reset game-->
-    <button id="game-reset" type="reset" onClick="resetGame();"> Reset </button>
 
-    </section>
+        </section>
+    </div>
 </body>
 
 </html>
