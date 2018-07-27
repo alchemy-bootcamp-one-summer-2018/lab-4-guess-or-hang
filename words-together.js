@@ -1,1 +1,3 @@
-var words = ['moose'];
+/* exported words */
+
+var words = ['moose', 'dog', 'cat'];

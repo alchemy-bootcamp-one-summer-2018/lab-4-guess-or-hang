@@ -5,30 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="main-together.css">
-    <title>Document</title>
+    <title>Hangman Game</title>
 </head>
 
 <body>
-<header>
-<h1>Let's play hangman!</h1>
-</header>
+    <header>
+        <h1>Let's play hangman!</h1>
+    </header>
 
-<script type="text/javascript" src="words-together.js"></script> 
-<script type="text/javascript" src="app-together.js"></script>
+    <script type="text/javascript" src="words-together.js"></script> 
+    <script type="text/javascript" src="app-together.js"></script>
 
-<section id='getword'>
+    <section id='game'>
 
-    <form id="hangman">
-        <!--get random word-->
-        <button id="submit" type="submit" onClick="return loadWord();"> Play the game </button>
+    <!--get random word-->
+    <form id="getword">
+        <button id="word-submit" type="submit" onClick="return loadWord(words);"> Play the game </button>
         <p id="word-results"></p>
-
-        <!--play game-->
-        <input type="text" id='guessletter'>
-        <button id="submit" type="submit" onClick="return guess();"> Guess letter </button>
-        <p id="guess-results"></p>
     </form>
     
+    <form id="playgame">
+        <!--play game-->
+        <input type="text" id='guessletter'>
+        <button id="guess-submit" type="submit" onClick="return guess(words);"> Guess letter </button>
+        <p id="guess-results"></p>
+    </form>
+
+    <!--reset game-->
+    <button id="game-reset" type="reset" onClick="resetGame();"> Reset </button>
+
     </section>
 </body>
 
