@@ -31,6 +31,8 @@ function guess() {
     console.log('letter pressed:', guessedLetter);
     lettersGuessed.push(guessedLetter);
     console.log('letter guessed:', lettersGuessed);
+    //for or while loop to get it to show all of the letters guessed?
+    document.getElementById('guessed-letter').innerText = lettersGuessed;
     return false;
 }
 
