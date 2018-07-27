@@ -101,7 +101,6 @@ function guess(){
         console.log('wrongGuess is:', wrongGuess);
         // check to see if lost game
         if(wrongGuess === bodyParts.length){
-            var wordResults = document.getElementById('word-results');
             wordResults.innerText = `Correct word: ${word}`;
             console.log('you lose!');
             setTimeout(function() {
@@ -148,7 +147,7 @@ function checkRepeat(guess){
     }
 }
 
-function addPic (id){
+function addPic(id){
     document.getElementById(id).classList.remove('hidden');
     console.log('hey', id, document.getElementById(id));
 }

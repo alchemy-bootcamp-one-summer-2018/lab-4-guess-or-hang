@@ -11,10 +11,18 @@ body {
     background-color: rgb(221, 191, 57);
     padding: 30px; 
 }
-/* 
+
+#sidebar {
+    position: fixed;
+    right: 100px;
+    top: 115px;
+    width: 400px;
+    background-color: width;
+}
+
 .hidden {
     visibility: hidden;
-}  */
+} 
 
 #room {
     z-index: 0;
@@ -22,42 +30,43 @@ body {
 
 #head {
     position: absolute;
-    top: 375px;
+    top: 355px;
     left: 400px;
     z-index:2;
 }
 
 #body {
     position: absolute;
-    top: 475px;
+    top: 455px;
     left: 400px;
     z-index:2;
 }
 
 #right_arm {
     position: absolute;
-    top: 550px;
+    top: 530px;
     left: 410px;
     z-index:2;
 }
 
 #left_arm {
     position: absolute;
-    top: 500px;
+    top: 480px;
     left: 365px;
     z-index:1;
 }
 
 #right_leg {
     position: absolute;
-    top: 630px;
+    top: 610px;
     left: 440px;
     z-index:2;
 }
 
 #left_leg {
     position: absolute;
-    top: 630px;
+    top: 610px;
     left: 350px;
     z-index:2;
 }
+

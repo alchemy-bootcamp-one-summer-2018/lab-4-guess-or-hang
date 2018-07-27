@@ -17,25 +17,28 @@
         <script type="text/javascript" src="words-together.js"></script> 
         <script type="text/javascript" src="app-together.js"></script>
 
-        <section id='game'>
+        <section id="game">
 
             <!--get random word-->
             <form id="getword">
-                <button id="word-submit" type="submit" onClick="return loadWord(words);"> Generate word </button>
-                <p id="word-results"></p>
+                <button id="word-submit" type="submit" onclick="return loadWord(words);"> Generate word </button>
             </form>
 
             <p id="guess-results"></p>
+            <p id="word-results"></p>
 
             <form id="playgame">
                 <!--play game-->
-                <input type="text" maxlength="1" id='guessletter'>
-                <button id="guess-submit" type="submit" onClick="return guess(words);"> Guess letter </button>
+                <input type="text" maxlength="1" id="guessletter">
+                <button id="guess-submit" type="submit" onclick="return guess(words);"> Guess letter </button>
             </form><br>
 
-            <label> Letters Guessed: <p id="letters-guessed"></p></label>
-            <p id="warning"></p>
-            <label> Guesses Left: <p id="guesses-left"></p></label>
+            <div id="sidebar">
+                <label> Letters Guessed: <span id="letters-guessed"></span></label>
+                <p id="warning"></p>
+                <label> Guesses Left: <span id="guesses-left"></span></label>
+            </div>
+
             <div>
                 <img src="images/room.png" id = "room" alt="empty yellow room">
                 <img src="images/body.png" class = "hidden" id = "body" alt="drake's body">
@@ -46,7 +49,7 @@
                 <img src="images/rightleg.png" class = "hidden" id = "right_leg" alt="drake's right leg">                
             </div>
             <!--reset game-->
-            <button id="game-reset" type="reset" onClick="resetGame();"> Play Again! </button> 
+            <button id="game-reset" type="reset" onclick="resetGame();"> Play Again! </button> 
         </section>
     </div>
 </body>
