@@ -34,12 +34,12 @@ function guess(){
     console.log('guess:', guess);
     var warning = document.getElementById('warning');
     warning.innerText = '';
-
+    var guessesLeft = document.getElementById('guesses-left');
     // make sure guess is a letter
     checkLetter(guess);
 
     // check guess is a repeat (true or false)
-    checkRepeat(guess);
+    var repeat = checkRepeat(guess);
 
     // add to letterList
     letterList.push(guess);
@@ -61,6 +61,14 @@ function guess(){
                 userWord[i] = guess;
             }
         }
+        // if they are repeating themselves, deduct a guess
+        if(repeat === true){
+            wrongGuess = wrongGuess + 1;
+            guessesLeft.innerText = bodyParts.length - wrongGuess;
+        }
+        else {
+            guessesLeft.innerText = bodyParts.length - wrongGuess;
+        }
 
         var guessResult = document.getElementById('guess-results');
         guessResult.innerText = userWord.join('');
@@ -70,7 +78,7 @@ function guess(){
         // check to see if we have won
         if(userWord.join('') === word) {
             var wordResults = document.getElementById('word-results');
-            wordResults.innerText = word;
+            wordResults.innerText = `Correct word: ${word}`;
             console.log('You won!');
             setTimeout(function() {
                 alert('You won!');}, 100);
@@ -85,14 +93,14 @@ function guess(){
         console.log('gallows:', gallows);
         // increment guess count
         wrongGuess = wrongGuess + 1;
-        var guessesLeft = document.getElementById('guesses-left');
+
         guessesLeft.innerText = bodyParts.length - wrongGuess;
 
         console.log('wrongGuess is:', wrongGuess);
         // check to see if lost game
         if(wrongGuess === bodyParts.length){
             var wordResults = document.getElementById('word-results');
-            wordResults.innerText = word;
+            wordResults.innerText = `Correct word: ${word}`;
             console.log('you lose!');
             setTimeout(function() {
                 alert('You lose!');}, 100);
