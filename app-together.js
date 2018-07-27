@@ -17,7 +17,7 @@ function loadWord() {
         return Math.floor(Math.random() * (max - min)) + min;
     }
     console.log('random word:', word);
-    userWord = wordBuild();
+    wordBuild();   
     console.log('userWord:', userWord);
     return false;
 }
@@ -25,9 +25,9 @@ function loadWord() {
 function wordBuild(){
     // make a string with the same number of spaces as the word we need to guess
     for(var i = 0; i < word.length; i++){
+        console.log('sloooooowwwwww');
         userWord.push('X');
     }
-    return userWord;
 }
 
 
@@ -73,10 +73,16 @@ function guess(){
     }
     console.log('userWordprogress', userWord);
 
+    // check to see if we have won
+    if(userWord.join('') === guess) {
+        console.log('you won!');
+        alert('You got it!');
+    }
+
     return false; // doesnt clear
 }
 
-function checkLetter(character)
+function checkLetter(character)     
 {
     var regex = /^[a-zA-Z]+$/;
     if(!character.match(regex))
