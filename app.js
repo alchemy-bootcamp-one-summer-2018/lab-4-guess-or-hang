@@ -14,17 +14,22 @@ function loadWord() {
     return selectedWord;
 }
 function showBlanks() {
+    console.log('selected word letters:', selectedWord.length);
     for(var i = 0; i < selectedWord.length; i++) {
-        console.log('selected word letters:', selectedWord.length);
         //var lettersToDisplay = wordToGuess[i];
         //var display = selectedWord;
         document.getElementById('letter-' + i).innerText = '_';
     }
+    //return false;
 }
 loadWord();
 showBlanks();
 function guess() {
-    
+    //document.querySelector.form.elements;
+    //console.log('letter pressed:', document.querySelector('form').elements);
+    console.log('letter pressed:', document.querySelector('input').value);
+
+    return false;
 }
 
 function getRandomIndex(max) {

@@ -25,9 +25,9 @@
     </section>
     <section>
         <h2>Guess Letter</h2>
-        <form>
-            <input type="text" maxlength="1" required>
-            <button onclick="guess()">Guess</button>
+        <form onsubmit="return guess()">
+            <input type="text" maxlength="1" pattern="[A-Za-z]" required>
+            <button type="submit">Guess</button>
         </form>
     </section>
     <section>
