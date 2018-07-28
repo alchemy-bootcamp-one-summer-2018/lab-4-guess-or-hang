@@ -6,8 +6,9 @@ var getArray = words.slice();
 var selectedWord = '';
 var lettersGuessed = [];
 var correctLetters = [];
-var guessedLetter = document.querySelector('input').value;
-console.log('app.js is working');
+var guessedLetter = ''; 
+var incorrectGuesses = 0;
+
 
 function loadWord() {
     var index = getRandomIndex(getArray.length);
@@ -25,25 +26,28 @@ function showBlanks() {
 }
 loadWord();
 showBlanks();
-document.getElementById('number-of-guesses').innerText = numberOfGuesses;
-//document.getElementById('body-').hidden = false;
 
 function guess() {
-    
-    console.log('letter pressed:', guessedLetter);
+    guessedLetter = document.querySelector('input').value;
+    console.log('GUESSED LETTER: ', guessedLetter);
     
     if(selectedWord.includes(guessedLetter)) {
         
+        lettersGuessed.push(guessedLetter);
+        document.getElementById('guessed-letter').innerText = lettersGuessed;
+        console.log('letter pressed:', guessedLetter);
+        
+        console.log('reached correct guess');
         //show in correct blank space 
         //find matching index for correct letter guessed
         letterLocation();
         
-        //put into array of correct guesses
-        
         // count as a guess
-        
+        handleCorrectGuesses();
+        console.log('correct letters', correctLetters);
+        console.log('number of guesses', numberOfGuesses);
         //show the letter in guessed letters
-        document.getElementById('guessed-letter').innerText = lettersGuessed;
+        document.getElementById('number-of-guesses').innerText = numberOfGuesses;
         
         //check for win
         //alert for win
@@ -51,13 +55,19 @@ function guess() {
     
     else {
         //count as guess
+        document.getElementById('number-of-guesses').innerText = numberOfGuesses;
         //show the letter in guessed letters
+        lettersGuessed.push(guessedLetter); 
+        document.getElementById('guessed-letter').innerText = lettersGuessed;
         //put into array of incorrect guesses (6)
+        incorrectGuesses++;
+        console.log('incorrect guesses:', incorrectGuesses);
         //reveal a body part
+        document.getElementById('body-' + incorrectGuesses).hidden = false;
         //check for loss
         //alert loss
     }
-    
+    return false;
 }
 
 function handleCorrectGuesses() {
