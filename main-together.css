@@ -13,11 +13,11 @@ body {
 }
 
 #sidebar {
-    position: fixed;
-    right: 100px;
-    top: 115px;
+    position: absolute;
+    left: 600px;
+    top: 75px;
     width: 400px;
-    background-color: width;
+    clear: right;
 }
 
 .hidden {

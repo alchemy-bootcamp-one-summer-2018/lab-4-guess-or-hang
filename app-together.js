@@ -35,6 +35,7 @@ function guess(){
     var warning = document.getElementById('warning');
     warning.innerText = '';
     var guessesLeft = document.getElementById('guesses-left');
+    var wordResults = document.getElementById('word-results');
     // make sure guess is a letter
     checkLetter(guess);
 
@@ -79,7 +80,6 @@ function guess(){
 
         // check to see if we have won
         if(userWord.join('') === word) {
-            var wordResults = document.getElementById('word-results');
             wordResults.innerText = `Correct word: ${word}`;
             console.log('You won!');
             setTimeout(function() {
@@ -104,7 +104,7 @@ function guess(){
             wordResults.innerText = `Correct word: ${word}`;
             console.log('you lose!');
             setTimeout(function() {
-                alert('You lose!');}, 100);
+                alert('You lose!');}, 200);
             submit.disabled = true;
         }
     }
