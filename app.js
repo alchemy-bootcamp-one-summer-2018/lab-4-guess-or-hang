@@ -4,6 +4,7 @@
 var numberOfGuesses = 0;
 var getArray = words.slice();
 var selectedWord = '';
+var checkCorrect = [];
 var lettersGuessed = [];
 var correctLetters = [];
 var guessedLetter = ''; 
@@ -22,6 +23,8 @@ function showBlanks() {
     console.log('selected word letters:', selectedWord.length);
     for(var i = 0; i < selectedWord.length; i++) {
         document.getElementById('letter-' + i).innerText = '_';
+        //correctLetters.join(checkCorrect);
+        //console.log('spelling-word', correctLetters.join(checkCorrect));
     }
 }
 loadWord();
@@ -50,6 +53,8 @@ function guess() {
         document.getElementById('number-of-guesses').innerText = numberOfGuesses;
         
         //check for win
+        correctLetters.join('');
+        console.log('spelling word: ', correctLetters.join(''));
         //alert for win
     }
     
@@ -81,6 +86,7 @@ function letterLocation() {
         console.log('test-letter', selectedWord[0]);
                 
         if(selectedWord[i] === guessedLetter) {
+            lettersGuessed.push(guessedLetter);
             document.getElementById('letter-' + i).innerText = guessedLetter;
         }        
     }
