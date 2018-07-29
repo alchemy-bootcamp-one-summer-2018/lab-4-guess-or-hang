@@ -1,4 +1,4 @@
-/* exported getRandomWord, guess, copy */
+/* exported loadWord, guess, copy */
 /* global words */
 
 
@@ -7,8 +7,8 @@ var selectedWord = '';
 var copy = words.slice();
 var SplitRandomWord;
 
- 
-function getRandomWord() {
+//choose random word
+function loadWord() {
     index = getRandomIndex(words.length);
     console.log(index);
 
@@ -17,35 +17,42 @@ function getRandomWord() {
 
     SplitRandomWord = selectedWord.split('');
     console.log('letters:\n', SplitRandomWord);
-    
-    return false;       
-}
 
-function getRandomIndex(max) { 
-    return Math.floor(Math.random() * max);
-}
+    function blankSpaces() {
 
-var guessForm = document.getElementById ('guess-form');
-var guessResult = document.getElementById ('guess-result');
+        for(var i = 0; i < selectedWord.length; i++) {
+            document.getElementById('word-' + i).innerText = '_';
+        }
 
-function guess(){
-
-    var letterTheyGuessed = guessForm.elements.guessLetter.value;
-    console.log (letterTheyGuessed);
-
-    var wordToGuess = selectedWord[i];
-    var display = '';
-
-    for(i = 0; i < selectedWord.length; i++){
-        console.log('they selected word', selectedWord[i]);
+        return false;       
     }
 
-    if(wordToGuess) {
-        display = wordToGuess(' ');
-    } 
- 
-    document.getElementById('word-' + i).innerText = display;
+    function getRandomIndex(max) { 
+        return Math.floor(Math.random() * max);
+    }
 
+    var guessForm = document.getElementById ('guess-form');
+    var guessResult = document.getElementById ('guess-result');
+
+    // letter they guess
+    function guess(){
+
+        var letterTheyGuessed = guessForm.elements.guessLetter.value;
+        console.log (letterTheyGuessed);
+
+        var wordToGuess = selectedWord[i];
+        var display = '';
+
+        for(i = 0; i < selectedWord.length; i++){
+            console.log('they chose word', selectedWord[i]);
+        }
+
+        if(wordToGuess) {
+            display = wordToGuess(' ');
+        } 
+ 
+    
+    // blank letter spots 
     var letterSpots = [];
     for(i = 0; i < words.length; i++) {
 
@@ -56,18 +63,13 @@ function guess(){
 
         var letterSpot = [spotOne, spotTwo, spotThree, spotFour];
         letterSpots.push(letterSpot);
+     
     }
 
-    for(var i = 0; i < words.length; i++) {
-
-        if(letterTheyGuessed === 'cat') {
-            guessResult.innerText = 'That\'s right! An ' + letterTheyGuessed;
-            console.log ('this is what user guessed', letterTheyGuessed);
-        }
-        
-    }
-    return false;  
+    return false;    
 }
+   
+
     
     
 //     else {
