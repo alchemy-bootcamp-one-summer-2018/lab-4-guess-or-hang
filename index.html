@@ -12,14 +12,13 @@
     <h2>Press Start To Play</h2>
         <button onclick= "return loadWord()">Start!</button>
         <section> 
+        
+            <p id = "loadword"> </p>
 
-            <p class="show-word" id="word-0"> </p>
-            <p class="show-word" id="word-1"> </p>
-            <p class="show-word" id="word-2"></p>
-            <p class="show-word" id="word-3"></p>
-            <p class="show-word" id="word-4"></p>
-            <p class="show-word" id="word-5"></p>
-
+            <ul id="letters">
+                    <li class="selected-word"></li>
+            </ul> 
+        
 
          </section>
 
@@ -28,7 +27,7 @@
          <h2>Guess Your Letter</h2>
         <form id="guess-form" onsubmit= "return guess()">
  
-        <input name="guessLetter">
+        <input type = text name="letter" id="letter" >
 
         <button type="submit">Guess</button>
 
