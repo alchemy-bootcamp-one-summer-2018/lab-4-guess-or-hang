@@ -2,12 +2,14 @@
 /* global words */
 
 
+
+        
 var index = null;
 var selectedWord = '';
 var copy = words.slice();
 var SplitRandomWord;
 
-//choose random word
+ 
 function loadWord() {
     index = getRandomIndex(words.length);
     console.log(index);
@@ -18,41 +20,47 @@ function loadWord() {
     SplitRandomWord = selectedWord.split('');
     console.log('letters:\n', SplitRandomWord);
 
-    function blankSpaces() {
+    //new from Kayla
+    document.getElementById('letters').value = '';
 
-        for(var i = 0; i < selectedWord.length; i++) {
-            document.getElementById('word-' + i).innerText = '_';
-        }
+    letters = document.getElementById('letters');
+    letters.innerHTML = ('<li>Selected word:</li>' + SplitRandomWord);
 
-        return false;       
+    var letter, i;
+    for(i = 0; i < selectedWord.length; i++) {
+        letter = '<li class="letter letter' + 
+            selectedWord.charAt(i).toUpperCase() + '">' +
+            selectedWord.charAt(i).toUpperCase() + '</li>';
+    }
+    return false;       
+}
+
+function getRandomIndex(max) { 
+    return Math.floor(Math.random() * max);
+
+}
+
+var guessForm = document.getElementById ('guess-form');
+var guessResult = document.getElementById ('guess-result');
+
+function guess(){
+
+    var letterTheyGuessed = guessForm.elements.guessLetter.value;
+    console.log (letterTheyGuessed);
+
+    var wordToGuess = selectedWord[i];
+    var display = '';
+
+    for(i = 0; i < selectedWord.length; i++){
+        console.log('they selected word', selectedWord[i]);
     }
 
-    function getRandomIndex(max) { 
-        return Math.floor(Math.random() * max);
-    }
-
-    var guessForm = document.getElementById ('guess-form');
-    var guessResult = document.getElementById ('guess-result');
-
-    // letter they guess
-    function guess(){
-
-        var letterTheyGuessed = guessForm.elements.guessLetter.value;
-        console.log (letterTheyGuessed);
-
-        var wordToGuess = selectedWord[i];
-        var display = '';
-
-        for(i = 0; i < selectedWord.length; i++){
-            console.log('they chose word', selectedWord[i]);
-        }
-
-        if(wordToGuess) {
-            display = wordToGuess(' ');
-        } 
+    if(wordToGuess) {
+        display = wordToGuess(' ');
+    } 
  
-    
-    // blank letter spots 
+    document.getElementById('word-' + i).innerText = display;
+
     var letterSpots = [];
     for(i = 0; i < words.length; i++) {
 
@@ -63,13 +71,18 @@ function loadWord() {
 
         var letterSpot = [spotOne, spotTwo, spotThree, spotFour];
         letterSpots.push(letterSpot);
-     
     }
 
-    return false;    
-}
-   
+    for(var i = 0; i < words.length; i++) {
 
+        if(letterTheyGuessed === 'cat') {
+            guessResult.innerText = 'That\'s right! An ' + letterTheyGuessed;
+            console.log ('this is what user guessed', letterTheyGuessed);
+        }
+        
+    }
+    return false;  
+}
     
     
 //     else {
