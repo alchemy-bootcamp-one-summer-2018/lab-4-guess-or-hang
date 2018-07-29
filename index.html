@@ -33,8 +33,9 @@
         <h2>Guess Letter</h2>
         <form onsubmit="return guess()">
             <input type="text" maxlength="1" pattern="[A-Za-z]" required>
-            <button type="submit">Guess</button>
+            <button id="submit-button" type="submit">Guess</button>
         </form>
+        <button id="play-again" onclick="startNewGame()" type="submit" hidden>Play Again</button>
     </section>
     <section>
         <h2>Letters Guessed</h2>
