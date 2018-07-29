@@ -35,9 +35,9 @@ function showBlanks() {
     console.log('selected word letters:', selectedWord.length);
     for(var i = 0; i < selectedWord.length; i++) {
         document.getElementById('letter-' + i).innerText = '_';
-
-        //correctLetters.join(checkCorrect);
-        //console.log('spelling-word', correctLetters.join(checkCorrect));
+    }
+    for(var j = selectedWord.length; j < 9; j++) {
+        document.getElementById('letter-' + j).innerText = '';
     }
 }
 
@@ -51,6 +51,15 @@ function startNewGame() {
     guessedLetter = ''; 
     incorrectGuesses = 0;
     targetLettersArr = [];
+    document.getElementById('submit-button').disabled = false;
+    document.getElementById('play-again').hidden = true;
+    document.getElementById('number-of-guesses').innerText = numberOfGuesses;
+    document.getElementById('guessed-letter').innerText = lettersGuessed;
+    document.getElementById('letter-guess-field').value = null;
+    var bodyParts = document.getElementsByClassName('body-part');
+    for(var i = 0; i < bodyParts.length; i++){
+        bodyParts[i].hidden = true;
+    }
     loadWord();
     showBlanks();
 
@@ -61,7 +70,7 @@ function guess() {
     console.log('GUESSED LETTER: ', guessedLetter);
     
     if(!lettersGuessed.includes(guessedLetter)) {
-
+    
         if(selectedWord.includes(guessedLetter)) {
             
             lettersGuessed.push(guessedLetter);
@@ -108,9 +117,16 @@ function guess() {
             //reveal a body part
             document.getElementById('body-' + incorrectGuesses).hidden = false;
             //check for loss
+            if(incorrectGuesses === 6) {
+                alert('ERROR Travis didn\'t get a match, Try Again?');
+                document.getElementById('submit-button').disabled = true;
+                document.getElementById('play-again').hidden = false;
+            }
             //alert loss
         }
     }
+    document.getElementById('letter-guess-field').value = null;
+    document.getElementById('letter-guess-field').focus();
     return false;
 }
 
