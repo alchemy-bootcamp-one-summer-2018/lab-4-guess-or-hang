@@ -4,7 +4,6 @@
 var numberOfGuesses = 0;
 var getArray = words.slice();
 var selectedWord = '';
-var checkCorrect = [];
 var lettersGuessed = [];
 var correctLetters = [];
 var guessedLetter = ''; 
@@ -45,7 +44,6 @@ function startNewGame() {
     numberOfGuesses = 0;
     getArray = words.slice();
     selectedWord = '';
-    checkCorrect = [];
     lettersGuessed = [];
     correctLetters = [];
     guessedLetter = ''; 
@@ -149,20 +147,6 @@ function letterLocation() {
 }
 
 startNewGame();
-
-function checkWinCondition() {
-    
-}
-
-function isPreviouslyGuessed() {
-    if(lettersGuessed.includes(guessedLetter)) {
-        alert('ERROR: Travis noticed you have already used ' + guessedLetter);
-    }
-   
-    else {
-        lettersGuessed.push(guessedLetter);
-    }
-}
 
 function getRandomIndex(max) {
     return Math.floor(Math.random() * max);
