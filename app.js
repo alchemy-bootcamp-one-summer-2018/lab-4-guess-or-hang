@@ -105,6 +105,7 @@ function guess() {
         
         else {
             //count as guess
+            numberOfGuesses++;
             document.getElementById('number-of-guesses').innerText = numberOfGuesses;
             //show the letter in guessed letters
             lettersGuessed.push(guessedLetter); 
