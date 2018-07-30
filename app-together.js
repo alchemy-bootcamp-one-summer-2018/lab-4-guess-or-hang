@@ -18,7 +18,7 @@ function loadWord(words) {
     wordBuild();
     console.log('userWord:', userWord);
 
-    //dispay blanks
+    //display blanks
     var guessResult = document.getElementById('guess-results');
     guessResult.innerText = userWord.join('');
 
@@ -26,16 +26,19 @@ function loadWord(words) {
 }
 
 function guess(){
-    // takes in guess letter and stores it
+    // save some variables for later
     var submit = document.getElementById('guess-submit');
     var form = document.getElementById('playgame');
     var elements = form.elements;
-    var guess = elements.guessletter.value;
-    console.log('guess:', guess);
     var warning = document.getElementById('warning');
     warning.innerText = '';
     var guessesLeft = document.getElementById('guesses-left');
     var wordResults = document.getElementById('word-results');
+
+    // takes in guess letter and stores it
+    var guess = elements.guessletter.value;
+    console.log('guess:', guess);
+
     // make sure guess is a letter
     checkLetter(guess);
 
@@ -73,6 +76,7 @@ function guess(){
             guessesLeft.innerText = bodyParts.length - wrongGuess;
         }
 
+        // show user's partial word
         var guessResult = document.getElementById('guess-results');
         guessResult.innerText = userWord.join('');
         console.log('userWord:', userWord);
@@ -87,6 +91,7 @@ function guess(){
             submit.disabled = true;
         }
     }
+    // if it's a wrong guess
     else {
         // add body parts
         gallows.push(bodyParts[wrongGuess]);
