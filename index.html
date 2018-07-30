@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <section>
+        <h2>Gallows</h2>
+        <image src="images/head.jpg" class="body-part" id="body-1" hidden/>
+        <image src="images/body.jpg" class="body-part" id="body-2" hidden/>
+        <image src="images/left-arm.jpg" class="body-part" id="body-3" hidden/>
+        <image src="images/right-arm.jpg" class="body-part" id="body-4" hidden/>
+        <image src="images/left-leg.jpg" class="body-part" id="body-5" hidden/>
+        <image src="images/right-leg.jpg" class="body-part" id="body-6" hidden/>
+    </section>
+
+    <section>
+        <h2>Word to Guess</h2>
+        <span class= "letter" id="letter-0"></span>
+        <span class= "letter" id="letter-1"></span>
+        <span class= "letter" id="letter-2"></span>
+        <span class= "letter" id="letter-3"></span>
+        <span class= "letter" id="letter-4"></span>
+        <span class= "letter" id="letter-5"></span>
+        <span class= "letter" id="letter-6"></span>
+        <span class= "letter" id="letter-7"></span>
+        <span class= "letter" id="letter-8"></span>
+    </section>
+    <section>
+        <h2>Guess Letter</h2>
+        <form onsubmit="return guess()">
+            <input id="letter-guess-field" type="text" maxlength="1" pattern="[A-Za-z]" required>
+            <button id="submit-button" type="submit">Guess</button>
+        </form>
+        <button id="play-again" onclick="startNewGame()" type="submit" hidden>Play Again</button>
+    </section>
+    <section>
+        <h2>Letters Guessed</h2>
+        <span id="guessed-letter"></span>
+    </section>
+    <section>
+        <h2>Numbers of Guesses</h2>
+        <p> You've guessed <span id="number-of-guesses">0</span> times</p>
+    </section>
+    
+    <script src="words.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
