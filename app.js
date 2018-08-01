@@ -1,5 +1,4 @@
 /* globals words */
-/* globals variables */
 /* exported loadWord */
 /* exported guess */
 /* exported reset */
@@ -10,12 +9,11 @@ var letters;
 
 var guessButton = document.getElementById('guess-button');
 var startButton = document.getElementById('start-button');
-var guessesNum  = document.getElementById('guesses-left');
+var guessesNum = document.getElementById('guesses-left');
 var guessesMade = document.getElementById('guesses-made');
 var badGuesses = document.getElementById('wrong-list');
 var gameWins = document.getElementById('wins');
 var gameLosses = document.getElementById('losses');
-var getMeOutOfHere = document.getElementById('quit-button');
 var gallows1 = document.getElementById('gallows1');
 var gallows2 = document.getElementById('gallows2');
 var gallows3 = document.getElementById('gallows3');
@@ -31,36 +29,34 @@ var totalWins = 0;
 var totalLosses = 0;
 var inputTried;
 var lettersTried = [];
-var hangedMan = [0,1,2,3,4,5];
 
 function loadWord(){
-    
-    function getWordIndex (max){
-        return Math.floor(Math.random() * max); 
-            
+
+    function getWordIndex(max){
+        return Math.floor(Math.random() * max);
     }
-    
+
     var copy = words.slice();
     var index = getWordIndex(copy.length);
     word = copy[index];
     letters = word.split('');
     var html = '';
     console.log(letters);
-    
+
     for(var i = 0; i < letters.length; i++){
-            html += `<label id = ${i}> _ </label>`;
-        }
+        html += `<label id = ${i}> _ </label>`;
+    }
     console.log(html);
-   
+
     var displayWord = document.getElementById ('hidden-letters');
     displayWord.innerHTML = html;
-    gallows1.innerText = "  +---+  ";
-    gallows2.innerText = "  |   |  ";
-    gallows3.innerText = "      |  ";
-    gallows4.innerText = "      |  ";
-    gallows5.innerText = "      |  ";
-    gallows6.innerText = "      |  ";
-    gallows7.innerText = "=========";
+    gallows1.innerText = '  +---+  ';
+    gallows2.innerText = '  |   |  ';
+    gallows3.innerText = '      |  ';
+    gallows4.innerText = '      |  ';
+    gallows5.innerText = '      |  ';
+    gallows6.innerText = '      |  ';
+    gallows7.innerText = '=========';
     startButton.disabled = true;
 
     return false;
@@ -68,11 +64,10 @@ function loadWord(){
 
 function guess(){
     var userInput = document.getElementById('letter-guessed').value;
-    console.log("The user entered: " + userInput);
+    console.log('The user entered: ' + userInput);
     var userMessage = document.getElementById('message');
-    var displayWord = document.getElementById('hidden-letters');
     correctGuesses = false;
-    
+
     function isLetter(str) {
         //Regular expression that tests the beginning, then the end of input for A-Z & a-z
         var testInput = /^[A-Za-z]+$/; //I might want to re-use this for other input later
@@ -85,21 +80,21 @@ function guess(){
     }
 
     if(isLetter(userInput) === false) {
-        console.log("woof woof");
+        console.log('woof woof');
         userMessage.innerText = 'Hey! You need to enter a LETTER!';
         return false;
     }
 
     for(var k = 0; k < lettersTried.length; k++) {
         if(userInput === lettersTried[k]) {
-            console.log("ding dong");
+            console.log('ding dong');
             userMessage.innerText = 'Hey! You already tried that! Pick another letter...';
             return false;
         }
     }
-    
+
     for(var j = 0; j < letters.length; j++) {
-        
+
         var displayCharacters = document.getElementById(j);
         if(userInput === letters[j]){
             correctCounter++;
@@ -107,7 +102,7 @@ function guess(){
             displayCharacters.innerHTML = letters[j];
             userMessage.innerText = 'Good job! That letter was a match!';
             lettersTried.push(userInput);
-            console.log("Number of letters in WORD correctly guessed: " + correctCounter);
+            console.log('Number of letters in WORD correctly guessed: ' + correctCounter);
         }
 
     }
@@ -128,37 +123,37 @@ function guess(){
         lettersTried.push(userInput);
         console.log(guessesLeft);
 
-        switch (guessesLeft) {
+        switch(guessesLeft) {
             case 5:
-                gallows1.innerText = "  +---+  ";
-                gallows2.innerText = "  |   |  ";
-                gallows3.innerText = "  o   |  ";
-                gallows4.innerText = "      |  ";
-                gallows5.innerText = "      |  ";
-                gallows6.innerText = "      |  ";
-                gallows7.innerText = "=========";
+                gallows1.innerText = '  +---+  ';
+                gallows2.innerText = '  |   |  ';
+                gallows3.innerText = '  o   |  ';
+                gallows4.innerText = '      |  ';
+                gallows5.innerText = '      |  ';
+                gallows6.innerText = '      |  ';
+                gallows7.innerText = '=========';
                 break;
             case 4:
-                gallows4.innerText = "  |   |  ";
+                gallows4.innerText = '  |   |  ';
                 break;
             case 3:
-                gallows4.innerText = " /|   |  ";
+                gallows4.innerText = ' /|   |  ';
                 break;
             case 2:
-                gallows4.innerText = " /|\\  |  ";
+                gallows4.innerText = ' /|\\  |  ';
                 break;
             case 1:
-                gallows5.innerText = " /    |  ";
+                gallows5.innerText = ' /    |  ';
                 break;
             case 0:
-                gallows5.innerText = " / \\  |  ";
+                gallows5.innerText = ' / \\  |  ';
                 break;
         }
 
     }
 
     inputTried = new Set(lettersTried);
-    console.log("This is the array of all letters tried so far... " + [...inputTried]);
+    console.log('This is the array of all letters tried so far... ' + [...inputTried]);
     totalGuesses = inputTried.size;
     guessesMade.innerText = totalGuesses;
     guessesNum.innerText = guessesLeft;
