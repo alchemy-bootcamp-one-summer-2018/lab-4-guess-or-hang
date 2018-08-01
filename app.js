@@ -111,6 +111,7 @@ function guess(){
         userMessage.innerText = 'Congratulations! You\'ve escaped the hangman\'s noose! Click the "Reset Game" button to play again.';
         guessButton.disabled = true;
         totalWins++;
+        inputTried.clear();
         gameWins.innerText = `Wins: ${totalWins}`;
         console.log(correctCounter);//win condition
     }
@@ -162,6 +163,7 @@ function guess(){
         userMessage.innerText = 'You ran out of guesses... You are DEAD! You lose! Click the "Reset Game" button to play again.';
         guessButton.disabled = true;
         totalLosses++;
+        inputTried.clear();
         gameLosses.innerText = `Losses: ${totalLosses}`;
     }
 
@@ -169,6 +171,13 @@ function guess(){
 }
 
 function reset() {
+    guessesLeft = 6;
+    //correctGuesses = 0;
+    //correctCounter = 0;
+    //guessesMade.innerText = '';
+    //guessesNum.innerText = '';
+    //badGuesses.innerText = '';
+
     loadWord();
     guessButton.disabled = false;
 
