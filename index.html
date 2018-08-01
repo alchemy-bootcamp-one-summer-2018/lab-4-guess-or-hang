@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label><pre id="gallows1"></pre></label>
+        <label><pre id="gallows2"></pre></label>
+        <label><pre id="gallows3"></pre></label>
+        <label><pre id="gallows4"></pre></label>
+        <label><pre id="gallows5"></pre></label>
+        <label><pre id="gallows6"></pre></label>
+        <label><pre id="gallows7"></pre></label>
+    </div>
+    <div>
+        <p>
+           <button id="start-button" onclick="return loadWord()">Start Game</button>
+        </p>
+    </div>
+    <div>
+        <form id="guess-letter">
+            <div id="hidden-letters"></div>
+            <div id="wrong-letters">
+                <p><label>Wrong letters: </label><label id="wrong-list"></label></p>
+                <p><label>Wrong guesses left: </label><label id="guesses-left"></label></p>
+                <p><label>Total guesses made: </label><label id="guesses-made"></label></p>
+            </div>
+            <button id="guess-button" onclick="return guess()">Guess a Letter</button>
+            <label>
+                <input id="letter-guessed" maxlength="1" required>
+            </label>
+        </form>
+        <div>
+            <button id="reset-button" onclick="return reset()">Reset game</button>
+        </div>
+        <div>
+            <p><label id="message">YOU SUCK</label></p>
+            <p><label id="wins"></label><label id="losses"></label></p>
+        </div>
+    </div>
+
+</body>
+
+
+<script src="word.js"></script>
+<script src="app.js"></script>
+
+</html>
