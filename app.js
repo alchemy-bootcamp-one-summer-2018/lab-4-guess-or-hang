@@ -1,94 +1,69 @@
-/* exported loadWord, guess, copy */
-/* global words */
+/* exported loadWord */
 
 
+let answerArray = [];
 
-        
-var index = null;
-var selectedWord = '';
-var copy = words.slice();
-var SplitRandomWord;
+let letterGuesses = 0;
 
- 
-function loadWord() {
-    index = getRandomIndex(words.length);
-    console.log(index);
+let blankSpaces;
 
-    selectedWord = words[index];
-    console.log(selectedWord);
+var words = ['cats', 'duck', 'hats', 'bird', 'love'];
 
-    SplitRandomWord = selectedWord.split('');
-    console.log('letters:\n', SplitRandomWord);
+//randomizing a word through the length of the list of words
+let wordToGuess = words[Math.floor(Math.random() * words.length)]; 
+//loading the wordToGuess with underscores
 
-    //new from Kayla
-    document.getElementById('letters').value = '';
-
-    letters = document.getElementById('letters');
-    letters.innerHTML = ('<li>Selected word:</li>' + SplitRandomWord);
-
-    var letter, i;
-    for(i = 0; i < selectedWord.length; i++) {
-        letter = '<li class="letter letter' + 
-            selectedWord.charAt(i).toUpperCase() + '">' +
-            selectedWord.charAt(i).toUpperCase() + '</li>';
+function loadWord(){
+    for(let i = 0; i < wordToGuess.length; i++) {
+        answerArray[i] = '_';
     }
-    return false;       
+
+    // take the answerArray of the wordToGuess 
+    //and create a string of letters 
+
+    //joining the answerArray of the WordToGuess and displaying 
+    //in the HTML where the id word-to-guess is
+    blankSpaces = answerArray.join (' ');
+    document.getElementById('word-to-guess').interHTML = letter;
 }
 
-function getRandomIndex(max) { 
-    return Math.floor(Math.random() * max);
+function letter(){
+    let letter = document.getElementById('letter').value;
 
-}
-
-var guessForm = document.getElementById ('guess-form');
-var guessResult = document.getElementById ('guess-result');
-
-function guess(){
-
-    var letterTheyGuessed = guessForm.elements.guessLetter.value;
-    console.log (letterTheyGuessed);
-
-    var wordToGuess = selectedWord[i];
-    var display = '';
-
-    for(i = 0; i < selectedWord.length; i++){
-        console.log('they selected word', selectedWord[i]);
-    }
-
-    if(wordToGuess) {
-        display = wordToGuess(' ');
-    } 
- 
-    document.getElementById('word-' + i).innerText = display;
-
-    var letterSpots = [];
-    for(i = 0; i < words.length; i++) {
-
-        var spotOne = SplitRandomWord;
-        var spotTwo = SplitRandomWord;
-        var spotThree = SplitRandomWord;
-        var spotFour = SplitRandomWord;
-
-        var letterSpot = [spotOne, spotTwo, spotThree, spotFour];
-        letterSpots.push(letterSpot);
-    }
-
-    for(var i = 0; i < words.length; i++) {
-
-        if(letterTheyGuessed === 'cat') {
-            guessResult.innerText = 'That\'s right! An ' + letterTheyGuessed;
-            console.log ('this is what user guessed', letterTheyGuessed);
+    if(letter.length > 0){
+        for(let i = 0; i < wordToGuess.length; i++) {
+            if(wordToGuess[i] === letter) {
+                answerArray[i] = letter;
+            }
         }
-        
+        document.getElementById('word-to-guess').innerHTML = answerArray.join(' ');
     }
-    return false;  
+    if(letterGuesses > 5) {
+        document.getElementById('stat').innerHTML = ' WRONG';
+    }
 }
     
-    
-//     else {
 
-//         totalGuesses = totalGuesses + 1;
-//         console.log (totalGuesses);
-//         guessResult.innerText = 'Whomp Whomp... a ' + letterTheyGuessed +
-//         ' is not my favorite. You\'re closer though. You\'ve guessed ' +
-//         totalGuesses + ' times try again!';
+//Show Random word
+
+
+
+// var progressWord = [];
+// for(var i = 0; i < selectedWord.length; i ++)
+//     progressWord.push('-');
+// console.log ('progress word', progressWord);
+
+
+// if(selectedWord.index(words) !== -1){ 
+//      for(var j = 0; i < selectedWord; i ++){ 
+// //         if(selectedWord[i] === words) 
+// //             progressWord[i] = selectedWord[j];
+//     }
+// } 
+// else {
+//     if(progressWord.indexOf('-') === -1){ // if there are no dashes left
+//         //win!
+//     } else if(guessesLeft <= 0){
+//         //player has lost
+//     }
+//     progressWord.join(' '); }

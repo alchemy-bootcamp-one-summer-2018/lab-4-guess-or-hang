@@ -2,56 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Hangman-Kayla</title>
 </head>
 <body>
+    <h1>HangMan</h1>
 
-    <!-- This is where the letter banks go--> 
-    <h2>Press Start To Play</h2>
-        <button onclick= "return loadWord()">Start!</button>
-        <section> 
-        
-            <p id = "loadword"> </p>
+    <h2>Number Of Wins <span class="value"></span></h2>
 
-            <ul id="letters">
-                    <li class="selected-word"></li>
-            </ul> 
-        
+<button onclick="loadWord()">Click me</button>
 
-         </section>
+<div id="word-to-guess"></div>
+<h2>Guess A Letter</h2>
 
-<!-- This is the form where the guess the letter--> 
+<input id="letter" type="text">
+<input type="button" value="letter" onClick="letter()"/>
 
-         <h2>Guess Your Letter</h2>
-        <form id="guess-form" onsubmit= "return guess()">
- 
-        <input type = text name="letter" id="letter" >
 
-        <button type="submit">Guess</button>
+<p id="letters-guessed">Letters Guessed <span class="value"></span></p>
+<p id="word-to-guess"></p>
+<p id=""></p>
 
-       </form> 
-       <h2>letters guessed</h2>
-       <p id="guess-result"></p>
 
- <!-- Letters Guessed--> 
-
-    <section> 
-        <p>
-        </p>
-
-     </section>
-
- <!-- A win or lose message--> 
-
-    <section> 
-        <p id="guessResult"></p>
-
-     </section>
-
-<script src="words.js"></script>
 <script src="app.js"></script>
+<script src="words.js"></script>
+
+
 
 </body>
 </html>
