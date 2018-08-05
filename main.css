@@ -25,52 +25,54 @@ label {
     border-radius: 4px;	
     background-color: #FFFFFF;	
     }
-#head {
-    position: absolute;
-    width: 7%;
-    top: 250px;
-    margin-left: 250px;
-}
 
 
-#man-body{
+#wrong_1{
     position: absolute;
-    
-    height: 20%;
-    top: 200px;
-    margin-left: 300px;
-
+    width: 60px;
+    top: 270px;
+    margin-left: 220px;
+    float: left;
 }
-
-#right-arm{
+#wrong_2{
     position: absolute;
-    width: 80px;
-    top: 200px;
-    margin-left: 250px;
-}
-img {
-    
-}
-#left-arm{
-    position: absolute;
-    width: 80px;
-    top: 200px;
-    margin-left: 250px;
+    width: 60px;
+    top: 270px;
+    margin-left: 340px;
+    float: left;
 }
 
-#right-leg{
+#wrong_3{
     position: absolute;
-    width: 20px;
-    top: 200px;
-    margin-left: 250px;
+    width: 60px;
+    top: 270px;
+    margin-left: 440px;
+    float: left;
 }
 
-#left-leg{
+#wrong{
     position: absolute;
-    width: 50px;
-    top: 200px;
-    margin-left: 250px;
+    width: 60px;
+    top: 270px;
+    margin-left: 550px;
+    float: right;
 }
+
+#status-lose {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    background: red;
+    background: #e8b238;
+}
+#status-win {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    background: red;
+    background: #e8b238;
+}
+
 /*fonts*/
 
 h1 {	
@@ -109,7 +111,7 @@ p {
 #word-to-guess {
     text-align: center;
     font-size: 40px;
-    padding: 2px 40px 40px 40px;
+    padding: 110px 40px 0px 40px;
     }
     
 
@@ -119,15 +121,24 @@ p {
 
 }
 
+#letter-guesses {
+    border: solid 1px #e8b238;
+    background: #e8b23847;
+    padding:20px;
+    text-align: center;
+    
+}
+
+
 /**buttons**/
 
 .start-button{
-    height: 30px;
+    height: 60px;
     width: 900px;
-    background-color: #3F51B5;
+    background-color: #D41DB5;
     color: #FFFFFF;
     font-family: "Open Sans";
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 22px;
     text-align: center;
@@ -138,7 +149,7 @@ p {
 #letter-button {
     height: 60px;	
     width: 300px;	
-    background-color: #D41DB5;
+    background-color: #607d8b;
     color: #FFFFFF;	
     font-family: "Open Sans";	
     font-size: 16px;	
@@ -148,10 +159,4 @@ p {
 }
 
 button:hover{
-    background-color: #212d74;}
-
-#js-reset {
-    background-color:#DD4FC4;}
-
-#js-reset:hover {
-    background-color:#D5663A;}
+    background-color: #212d74}

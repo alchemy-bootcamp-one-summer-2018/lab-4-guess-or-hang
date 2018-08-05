@@ -1,17 +1,22 @@
 /* exported loadWord, blankSpaces, letters */
 
-
-
 /* global words */
 
 let blankSpaces;
 let answerArray = [];
 let letterGuesses = 0;
+// let wrong = ['wrong_1','wrong_2', 'wrong_3', 'wrong'];
+// let gallows = [];
 
+window.onload = function() {
+    loadWord();
+};
 
 let wordToGuess = words[Math.floor(Math.random() * words.length)]; 
+console.log(wordToGuess);
 
 let lettersInWord = wordToGuess.split('');
+
 
 function loadWord(){
     for(let i = 0; i < wordToGuess.length; i++) {
@@ -20,16 +25,9 @@ function loadWord(){
 
     blankSpaces = answerArray.join (' ');
     document.getElementById('word-to-guess').interHTML = blankSpaces;
-
-    console.log(answerArray);
-
-    console.log(wordToGuess);
-
-
 }
 
 function letters(){
-
     let letter = document.getElementById('letter').value;
 
     //Number of guesses
@@ -39,18 +37,23 @@ function letters(){
                 answerArray[i] = letter;
             }
         }
-        letterGuesses++;
-        document.getElementById('letter-guesses').innerHTML = 'Number of Letters guessed ' + letterGuesses;
-        document.getElementById('word-to-guess').innerHTML = answerArray.join(' ');
 
         if(letterGuesses === lettersInWord.length) {
-            document.getElementById('status-win').innerHTML = 'yay!';
+            document.getElementById('status-win').innerHTML = 'yay! You won!';
         }
-    
-        if(letterGuesses > 7) {
+
+        letterGuesses++;
+        document.getElementById('letter-guesses').innerHTML = 'You have already guessed ' + letterGuesses + ' times';
+        document.getElementById('word-to-guess').innerHTML = answerArray.join(' ');
+
+        if(letterGuesses > 5) {
             document.getElementById('status-lose').innerHTML = 'Oh No! You ran out of guesses'; 
         }
+
+        
+    
+       
     }
 
-   
 }
+

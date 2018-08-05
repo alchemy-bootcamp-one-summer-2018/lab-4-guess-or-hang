@@ -5,38 +5,35 @@
     <title>Hangman-Kayla</title>
     <link rel="stylesheet"  href="main.css" />
 </head>
+
 <body>
+
     <div id="container">
     <h1 style="text-align:center;">The Hangman Game</h1>
-   <button class="start-button" onclick="loadWord()">Click Here To Pick Your Word To Guess</button>
-
+   
 <div id="game-area">
-                
-                <img src="images/wrong_1.png" class = "hidden" id = "wrong_1" alt="">
-                <img src="images/wrong_1.png" class = "hidden" id = "wrong_2" alt="">
-                <img src="images/wrong_1.png" class = "hidden" id = "wrong_3" alt="">
-                <img src="images/wrong.png" class = "hidden" id = "wrong" alt="">
-                
+
+    <p id="status-lose"></p> <p id="status-win"></p>
+        
+        <!-- <img src="images/wrong_1.png" class = "hidden" id = "wrong_1" alt="">
+        <img src="images/wrong_1.png" class = "hidden" id = "wrong_2" alt="">
+        <img src="images/wrong_1.png" class = "hidden" id = "wrong_3" alt="">
+        <img src="images/wrong.png" class = "hidden" id = "wrong" alt=""> -->
+            
 
     <p id="word-to-guess"></p>
-<form>
-<input id="letter" type="text">
-<input type="button"  value="Guess A Letter" onclick="letters()"/>
-</form>
+    <h2 style="text-align: center">You have 4 tries before you cry!</h2>
 
+    <form>
+    <input id="letter" type="text">
+    <input id="letter-button" type="button"  value="Guess A Letter" onclick="letters()"/>
+    </form>
+    <h3 id="letter-guesses">  <span class="value"></span></h3>
 </div>
-
-<div>
-<h3 id="letter-guesses"> <span class="value"></span></h3>
-
-
-<p id="status-lose"></p> <p id="status-wine"></p>
-
+</div>
 
 <script src="words.js"></script>
 <script src="app.js"></script>
-
-
 
 </body>
 </html>
