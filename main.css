@@ -1,0 +1,157 @@
+body { 
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    background-color:#e5d8d1;}
+
+#container { 
+    width: 900px;
+    margin-bottom: 30px;
+    padding: 50px;
+    border-radius: 4px;	
+    background-color: #FFFFFF;	
+    box-shadow: 0 0 1px 0 rgba(239,242,247,0.5), 0 2px 4px 0 rgba(3,3,4,0.1);}
+
+
+label {
+    margin-right: 15px;}
+
+#letter { 
+    height: 56px;	
+    width: 500px;	
+    font-size: 25px;
+    border: solid 1px #fff;	
+    border-radius: 4px;	
+    background-color: #FFFFFF;	
+    }
+#head {
+    position: absolute;
+    width: 7%;
+    top: 250px;
+    margin-left: 250px;
+}
+
+
+#man-body{
+    position: absolute;
+    
+    height: 20%;
+    top: 200px;
+    margin-left: 300px;
+
+}
+
+#right-arm{
+    position: absolute;
+    width: 80px;
+    top: 200px;
+    margin-left: 250px;
+}
+img {
+    
+}
+#left-arm{
+    position: absolute;
+    width: 80px;
+    top: 200px;
+    margin-left: 250px;
+}
+
+#right-leg{
+    position: absolute;
+    width: 20px;
+    top: 200px;
+    margin-left: 250px;
+}
+
+#left-leg{
+    position: absolute;
+    width: 50px;
+    top: 200px;
+    margin-left: 250px;
+}
+/*fonts*/
+
+h1 {	
+    font-family: 'Roboto', sans-serif;
+    color: #43565F;	
+    font-size: 52px;	
+    font-weight: 300;	
+	}
+
+h2 {  
+    font-family: 'Roboto', sans-serif;
+    color: #43565F;	
+    font-size: 30px;	
+    font-weight: 300;	
+    line-height: 35px;	
+    text-align: left;
+    margin-left: 15px;}
+
+h3 {  
+    font-family: 'Roboto', sans-serif;
+    color: #43565F;	
+    font-size: 20px;	
+    font-weight: 400;	
+    line-height: 20px;	
+    text-align: left;
+    margin-bottom: -10px;}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    color: #778F9B;		
+    font-size: 18px;	
+    letter-spacing: 0.12px;	
+    line-height: 24px;
+    font-weight: 300;}
+
+#word-to-guess {
+    text-align: center;
+    font-size: 40px;
+    padding: 2px 40px 40px 40px;
+    }
+    
+
+#game-area {
+    padding: 40px;
+    background: #f9f5f1;
+
+}
+
+/**buttons**/
+
+.start-button{
+    height: 30px;
+    width: 900px;
+    background-color: #3F51B5;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    text-align: center;
+    margin: 0;
+    display: block;
+   }
+
+#letter-button {
+    height: 60px;	
+    width: 300px;	
+    background-color: #D41DB5;
+    color: #FFFFFF;	
+    font-family: "Open Sans";	
+    font-size: 16px;	
+    font-weight: 500;	
+    line-height: 22px;	
+    text-align: center;	
+}
+
+button:hover{
+    background-color: #212d74;}
+
+#js-reset {
+    background-color:#DD4FC4;}
+
+#js-reset:hover {
+    background-color:#D5663A;}

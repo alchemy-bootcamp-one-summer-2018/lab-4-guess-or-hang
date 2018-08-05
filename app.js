@@ -1,69 +1,56 @@
-/* exported loadWord */
+/* exported loadWord, blankSpaces, letters */
 
 
-let answerArray = [];
 
-let letterGuesses = 0;
+/* global words */
 
 let blankSpaces;
+let answerArray = [];
+let letterGuesses = 0;
 
-var words = ['cats', 'duck', 'hats', 'bird', 'love'];
 
-//randomizing a word through the length of the list of words
 let wordToGuess = words[Math.floor(Math.random() * words.length)]; 
-//loading the wordToGuess with underscores
+
+let lettersInWord = wordToGuess.split('');
 
 function loadWord(){
     for(let i = 0; i < wordToGuess.length; i++) {
         answerArray[i] = '_';
     }
 
-    // take the answerArray of the wordToGuess 
-    //and create a string of letters 
-
-    //joining the answerArray of the WordToGuess and displaying 
-    //in the HTML where the id word-to-guess is
     blankSpaces = answerArray.join (' ');
-    document.getElementById('word-to-guess').interHTML = letter;
+    document.getElementById('word-to-guess').interHTML = blankSpaces;
+
+    console.log(answerArray);
+
+    console.log(wordToGuess);
+
+
 }
 
-function letter(){
+function letters(){
+
     let letter = document.getElementById('letter').value;
 
+    //Number of guesses
     if(letter.length > 0){
         for(let i = 0; i < wordToGuess.length; i++) {
             if(wordToGuess[i] === letter) {
                 answerArray[i] = letter;
             }
         }
+        letterGuesses++;
+        document.getElementById('letter-guesses').innerHTML = 'Number of Letters guessed ' + letterGuesses;
         document.getElementById('word-to-guess').innerHTML = answerArray.join(' ');
-    }
-    if(letterGuesses > 5) {
-        document.getElementById('stat').innerHTML = ' WRONG';
-    }
-}
+
+        if(letterGuesses === lettersInWord.length) {
+            document.getElementById('status-win').innerHTML = 'yay!';
+        }
     
+        if(letterGuesses > 7) {
+            document.getElementById('status-lose').innerHTML = 'Oh No! You ran out of guesses'; 
+        }
+    }
 
-//Show Random word
-
-
-
-// var progressWord = [];
-// for(var i = 0; i < selectedWord.length; i ++)
-//     progressWord.push('-');
-// console.log ('progress word', progressWord);
-
-
-// if(selectedWord.index(words) !== -1){ 
-//      for(var j = 0; i < selectedWord; i ++){ 
-// //         if(selectedWord[i] === words) 
-// //             progressWord[i] = selectedWord[j];
-//     }
-// } 
-// else {
-//     if(progressWord.indexOf('-') === -1){ // if there are no dashes left
-//         //win!
-//     } else if(guessesLeft <= 0){
-//         //player has lost
-//     }
-//     progressWord.join(' '); }
+   
+}
