@@ -1,81 +1,58 @@
-/* exported loadWord, guess, copy */
+/* exported loadWord, blankSpaces, letters */
+
 /* global words */
 
+let blankSpaces;
+let answerArray = [];
+let letterGuesses = 0;
+// let wrong = ['wrong_1','wrong_2', 'wrong_3', 'wrong'];
+// let gallows = [];
 
-var index = null;
-var selectedWord = '';
-var copy = words.slice();
-var SplitRandomWord;
+window.onload = function() {
+    loadWord();
+};
 
-//choose random word
-function loadWord() {
-    index = getRandomIndex(words.length);
-    console.log(index);
+let wordToGuess = words[Math.floor(Math.random() * words.length)]; 
+console.log(wordToGuess);
 
-    selectedWord = words[index];
-    console.log(selectedWord);
+let lettersInWord = wordToGuess.split('');
 
-    SplitRandomWord = selectedWord.split('');
-    console.log('letters:\n', SplitRandomWord);
 
-    function blankSpaces() {
-
-        for(var i = 0; i < selectedWord.length; i++) {
-            document.getElementById('word-' + i).innerText = '_';
-        }
-
-        return false;       
+function loadWord(){
+    for(let i = 0; i < wordToGuess.length; i++) {
+        answerArray[i] = '_';
     }
 
-    function getRandomIndex(max) { 
-        return Math.floor(Math.random() * max);
-    }
-
-    var guessForm = document.getElementById ('guess-form');
-    var guessResult = document.getElementById ('guess-result');
-
-    // letter they guess
-    function guess(){
-
-        var letterTheyGuessed = guessForm.elements.guessLetter.value;
-        console.log (letterTheyGuessed);
-
-        var wordToGuess = selectedWord[i];
-        var display = '';
-
-        for(i = 0; i < selectedWord.length; i++){
-            console.log('they chose word', selectedWord[i]);
-        }
-
-        if(wordToGuess) {
-            display = wordToGuess(' ');
-        } 
- 
-    
-    // blank letter spots 
-    var letterSpots = [];
-    for(i = 0; i < words.length; i++) {
-
-        var spotOne = SplitRandomWord;
-        var spotTwo = SplitRandomWord;
-        var spotThree = SplitRandomWord;
-        var spotFour = SplitRandomWord;
-
-        var letterSpot = [spotOne, spotTwo, spotThree, spotFour];
-        letterSpots.push(letterSpot);
-     
-    }
-
-    return false;    
+    blankSpaces = answerArray.join (' ');
+    document.getElementById('word-to-guess').interHTML = blankSpaces;
 }
-   
 
-    
-    
-//     else {
+function letters(){
+    let letter = document.getElementById('letter').value;
 
-//         totalGuesses = totalGuesses + 1;
-//         console.log (totalGuesses);
-//         guessResult.innerText = 'Whomp Whomp... a ' + letterTheyGuessed +
-//         ' is not my favorite. You\'re closer though. You\'ve guessed ' +
-//         totalGuesses + ' times try again!';
+    //Number of guesses
+    if(letter.length > 0){
+        for(let i = 0; i < wordToGuess.length; i++) {
+            if(wordToGuess[i] === letter) {
+                answerArray[i] = letter;
+            }
+        }
+
+        if(letterGuesses === lettersInWord.length) {
+            document.getElementById('status-win').innerHTML = 'yay! You won!';
+        }
+
+        letterGuesses++;
+        document.getElementById('letter-guesses').innerHTML = 'You have already guessed ' + letterGuesses + ' times';
+        document.getElementById('word-to-guess').innerHTML = answerArray.join(' ');
+
+        if(letterGuesses > 5) {
+            document.getElementById('status-lose').innerHTML = 'Oh No! You ran out of guesses'; 
+        }
+
+        
+    
+       
+    }
+
+}
