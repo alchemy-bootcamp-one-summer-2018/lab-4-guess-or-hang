@@ -1,0 +1,162 @@
+body { 
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    background-color:#e5d8d1;}
+
+#container { 
+    width: 900px;
+    margin-bottom: 30px;
+    padding: 50px;
+    border-radius: 4px;	
+    background-color: #FFFFFF;	
+    box-shadow: 0 0 1px 0 rgba(239,242,247,0.5), 0 2px 4px 0 rgba(3,3,4,0.1);}
+
+
+label {
+    margin-right: 15px;}
+
+#letter { 
+    height: 56px;	
+    width: 500px;	
+    font-size: 25px;
+    border: solid 1px #fff;	
+    border-radius: 4px;	
+    background-color: #FFFFFF;	
+    }
+
+
+#wrong_1{
+    position: absolute;
+    width: 60px;
+    top: 270px;
+    margin-left: 220px;
+    float: left;
+}
+#wrong_2{
+    position: absolute;
+    width: 60px;
+    top: 270px;
+    margin-left: 340px;
+    float: left;
+}
+
+#wrong_3{
+    position: absolute;
+    width: 60px;
+    top: 270px;
+    margin-left: 440px;
+    float: left;
+}
+
+#wrong{
+    position: absolute;
+    width: 60px;
+    top: 270px;
+    margin-left: 550px;
+    float: right;
+}
+
+#status-lose {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    background: red;
+    background: #e8b238;
+}
+#status-win {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    background: red;
+    background: #e8b238;
+}
+
+/*fonts*/
+
+h1 {	
+    font-family: 'Roboto', sans-serif;
+    color: #43565F;	
+    font-size: 52px;	
+    font-weight: 300;	
+	}
+
+h2 {  
+    font-family: 'Roboto', sans-serif;
+    color: #43565F;	
+    font-size: 30px;	
+    font-weight: 300;	
+    line-height: 35px;	
+    text-align: left;
+    margin-left: 15px;}
+
+h3 {  
+    font-family: 'Roboto', sans-serif;
+    color: #43565F;	
+    font-size: 20px;	
+    font-weight: 400;	
+    line-height: 20px;	
+    text-align: left;
+    margin-bottom: -10px;}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    color: #778F9B;		
+    font-size: 18px;	
+    letter-spacing: 0.12px;	
+    line-height: 24px;
+    font-weight: 300;}
+
+#word-to-guess {
+    text-align: center;
+    font-size: 40px;
+    padding: 110px 40px 0px 40px;
+    }
+    
+
+#game-area {
+    padding: 40px;
+    background: #f9f5f1;
+
+}
+
+#letter-guesses {
+    border: solid 1px #e8b238;
+    background: #e8b23847;
+    padding:20px;
+    text-align: center;
+    
+}
+
+
+/**buttons**/
+
+.start-button{
+    height: 60px;
+    width: 900px;
+    background-color: #D41DB5;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    text-align: center;
+    margin: 0;
+    display: block;
+   }
+
+#letter-button {
+    height: 60px;	
+    width: 300px;	
+    background-color: #607d8b;
+    color: #FFFFFF;	
+    font-family: "Open Sans";	
+    font-size: 16px;	
+    font-weight: 500;	
+    line-height: 22px;	
+    text-align: center;	
+}
+
+button:hover{
+    background-color: #212d74}
