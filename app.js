@@ -25,6 +25,8 @@ function loadWord(){
 
     blankSpaces = answerArray.join (' ');
     document.getElementById('word-to-guess').interHTML = blankSpaces;
+
+    return false;
 }
 
 function letters(){
@@ -50,8 +52,7 @@ function letters(){
             document.getElementById('status-lose').innerHTML = 'Oh No! You ran out of guesses'; 
         }
 
-        
-    
+        return false;
        
     }
 
