@@ -1,0 +1,72 @@
+#word-results {
+    color: green
+}
+
+#warning {
+    color: red;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: rgb(221, 191, 57);
+    padding: 30px; 
+}
+
+#sidebar {
+    position: absolute;
+    left: 600px;
+    top: 75px;
+    width: 400px;
+    clear: right;
+}
+
+.hidden {
+    visibility: hidden;
+} 
+
+#room {
+    z-index: 0;
+}
+
+#head {
+    position: absolute;
+    top: 355px;
+    left: 400px;
+    z-index:2;
+}
+
+#body {
+    position: absolute;
+    top: 455px;
+    left: 400px;
+    z-index:2;
+}
+
+#right_arm {
+    position: absolute;
+    top: 530px;
+    left: 410px;
+    z-index:2;
+}
+
+#left_arm {
+    position: absolute;
+    top: 480px;
+    left: 365px;
+    z-index:1;
+}
+
+#right_leg {
+    position: absolute;
+    top: 610px;
+    left: 440px;
+    z-index:2;
+}
+
+#left_leg {
+    position: absolute;
+    top: 610px;
+    left: 350px;
+    z-index:2;
+}
+
