@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main-together.css">
+    <title>Hangman Game</title>
+</head>
+
+<body>
+    <div>
+        <header>
+            <h1>Let's play Drakeman!</h1>
+        </header>
+
+        <script type="text/javascript" src="words-together.js"></script> 
+        <script type="text/javascript" src="app-together.js"></script>
+
+        <section id="game">
+
+            <!--get random word-->
+            <form id="getword">
+                <button id="word-submit" type="submit" onclick="return loadWord(words);"> Generate word </button>
+            </form>
+
+            <p id="guess-results"></p>
+            <p id="word-results"></p>
+
+            <form id="playgame">
+                <!--play game-->
+                <input type="text" maxlength="1" id="guessletter">
+                <button id="guess-submit" type="submit" onclick="return guess(words);"> Guess letter </button>
+            </form><br>
+
+            <div id="sidebar">
+                <label> Letters Guessed: <span id="letters-guessed"></span></label>
+                <p id="warning"></p>
+                <label> Guesses Left: <span id="guesses-left"></span></label>
+            </div>
+
+            <div>
+                <img src="images/room.png" id = "room" alt="empty yellow room">
+                <img src="images/body.png" class = "hidden" id = "body" alt="drake's body">
+                <img src="images/head.png" class = "hidden" id = "head" alt="drake's head">
+                <img src="images/leftarm.png" class = "hidden" id = "left_arm" alt="drake's left arm">
+                <img src="images/leftleg.png" class = "hidden" id = "left_leg" alt="drake's left leg">
+                <img src="images/rightarm.png" class = "hidden" id = "right_arm" alt="drake's right arm">
+                <img src="images/rightleg.png" class = "hidden" id = "right_leg" alt="drake's right leg">                
+            </div>
+            <!--reset game-->
+            <button id="game-reset" type="reset" onclick="resetGame();"> Play Again! </button> 
+        </section>
+    </div>
+</body>
+
+</html>
